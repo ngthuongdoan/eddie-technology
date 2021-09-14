@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.scss'
-import AppRouter from './AppRouter'
+import App from './App'
+import './assets/scss/index.scss'
 
 // You need bootstrap? $ yarn add bootstrap
 // See: https://create-react-app.dev/docs/adding-bootstrap
 // import 'bootstrap/dist/css/bootstrap.css';
 
 // Single-page application (SPA)
-ReactDOM.render(<AppRouter />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
 
 // If you want to Pre-render with react-snap
 // Step 1: install $ yarn add --dev react-snap

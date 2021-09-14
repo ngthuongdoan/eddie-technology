@@ -14,23 +14,9 @@
   },
   "rules": {
     "object-curly-spacing": ["warn", "always"],
-    "no-unused-vars": [
-      "warn",
-      {
-        "vars": "all",
-        "args": "none"
-      }
-    ],
-    "@typescript-eslint/semi": [
-      "off"
-    ],
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        "vars": "all",
-        "args": "none"
-      }
-    ],
+    "no-unused-vars": ["off"],
+    "@typescript-eslint/semi": ["off"],
+    "@typescript-eslint/no-unused-vars": ["off"],
     "@typescript-eslint/no-explicit-any": [
       "error",
       {
@@ -56,13 +42,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          "**/*.test.js",
-          "**/*.test.jsx",
-          "**/*.test.ts",
-          "**/*.test.tsx",
-          "src/tests/**/*"
-        ]
+        "devDependencies": ["**/*.test.js", "**/*.test.jsx", "**/*.test.ts", "**/*.test.tsx", "src/tests/**/*", "**/*.config.js"]
       }
     ],
     "react/jsx-props-no-spreading": "off",
@@ -75,4 +55,3 @@
     "react/destructuring-assignment": "off"
   }
 }
-
