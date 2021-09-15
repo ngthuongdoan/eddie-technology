@@ -1,17 +1,7 @@
-import React, { FunctionComponent } from 'react'
-import logo from './logo.svg'
+import React, { FunctionComponent } from 'react';
 
 const Index: FunctionComponent = () => {
-  return (
-    <div className="app">
-      <header className="app-header">
-        <img src={logo} className="app-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </header>
-    </div>
-  )
-}
+  return <div>Edit and save to reload.</div>;
+};
 
-export default Index
+export default Index;

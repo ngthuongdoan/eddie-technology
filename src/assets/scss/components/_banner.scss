@@ -1,0 +1,5 @@
+@layer components {
+  .banner {
+    @apply bg-primary text-background font-bold w-full py-1 px-10;
+  }
+}

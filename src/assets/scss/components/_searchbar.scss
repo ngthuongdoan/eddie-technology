@@ -1,0 +1,8 @@
+@layer components {
+  .searchbar {
+    @apply flex-grow ml-10 w-full;
+    input {
+      @apply relative bg-gray-200 text-black font-normal rounded-lg shadow-md w-full px-4 py-2 outline-none transition-all ease-in-out duration-1000 focus:shadow-inner;
+    }
+  }
+}
