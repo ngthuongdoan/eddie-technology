@@ -1,5 +1,7 @@
-type Feature = {
-  icon: string;
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+
+export type Feature = {
+  icon: IconProp;
   title: string;
   path?: string;
 };

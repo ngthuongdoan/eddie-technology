@@ -1,8 +1,4 @@
-type Feature = {
-  icon: string;
-  title: string;
-  path?: string;
-};
+import { Feature } from './features';
 
 const NAVIGATIONS: Array<Feature> = [
   {

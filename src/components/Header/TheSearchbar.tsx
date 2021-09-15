@@ -8,8 +8,9 @@ import TheNavigation from '../Common/TheNavigation';
 const TheSearchbar: FunctionComponent = (props): JSX.Element => {
   const [searchString, setSearchString] = useState('');
 
-  const chooseSuggestion = (event: React.ChangeEvent<HTMLElement>) => {
-    setSearchString(event.target.innerText);
+  const chooseSuggestion = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+    const target = event.target as HTMLLIElement;
+    setSearchString(target.innerText);
   };
 
   const changeSearchString = (event: React.ChangeEvent<HTMLInputElement>) => {
