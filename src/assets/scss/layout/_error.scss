@@ -1,6 +1,6 @@
 @layer components {
   .notfound {
-    @apply relative h-screen z-50 text-black;
+    @apply relative h-screen z-50 text-black bg-background;
     &__container {
       @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-3xl w-full leading-6 py-0 px-4;
     }
@@ -11,7 +11,7 @@
         @apply font-black m-0 uppercase bg-cover bg-center md:text-9xl;
         font-family: titillium web, sans-serif;
         font-size: 186px;
-        background: url(/assets/img/text.png);
+        background: url(/assets/img/text.jpg);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -26,9 +26,8 @@
       font-family: montserrat, sans-serif;
     }
     a {
-      @apply inline-block uppercase text-white border-none px-3 py-5 text-sm font-bold rounded-sm mt-4 transition-all duration-200;
+      @apply inline-block uppercase text-white bg-primary border-none px-3 py-5 text-sm font-bold rounded-sm mt-4 transition-all duration-200;
       font-family: titillium web, sans-serif;
-      background: #5c91fe;
       &:hover {
         @apply opacity-80;
       }
