@@ -1,6 +1,6 @@
 @layer components {
   .notfound {
-    @apply relative h-screen z-50 text-white;
+    @apply relative h-screen z-50 text-black;
     &__container {
       @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-3xl w-full leading-6 py-0 px-4;
     }

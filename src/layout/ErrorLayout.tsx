@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 const ErrorLayout: FunctionComponent = (): JSX.Element => {
   return (
     <>
-      <video className="background-video" autoPlay loop muted>
-        <source type="video/webm" src="https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/videoplayback_720.webm?alt=media&token=7167e39f-5a66-48c4-b55f-83491e45a729" />
-      </video>
       <div className="notfound">
         <div className="notfound__container">
           <div className="notfound__content">
