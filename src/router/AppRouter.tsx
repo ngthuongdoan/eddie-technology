@@ -1,22 +1,17 @@
 // src/AppRouter.tsx
 import React, { FunctionComponent } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from '../store';
+import { Route, Switch } from 'react-router-dom';
+
 // TODO: Import pages to render
-import Index from '../pages/index';
+import ErrorLayout from '../layout/ErrorLayout';
+import DefaultLayout from '../layout/DefaultLayout';
 
 const AppRouter: FunctionComponent = () => {
   return (
-    <Router>
-      <Router>
-        <Provider store={store}>
-          <Switch>
-            <Route exact path="/" component={Index} />
-          </Switch>
-        </Provider>
-      </Router>
-    </Router>
+    <Switch>
+      <Route path="/404" component={ErrorLayout} />
+      <Route path="/" component={DefaultLayout} />
+    </Switch>
   );
 };
 export default AppRouter;

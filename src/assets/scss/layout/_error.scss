@@ -1,0 +1,45 @@
+@layer components {
+  .notfound {
+    @apply relative h-screen z-50 text-white;
+    &__container {
+      @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-3xl w-full leading-6 py-0 px-4;
+    }
+    &__content {
+      @apply relative h-40 mb-6 md:h-28 transform -translate-y-1/2;
+      line-height: 150px;
+      h1 {
+        @apply font-black m-0 uppercase bg-cover bg-center md:text-9xl;
+        font-family: titillium web, sans-serif;
+        font-size: 186px;
+        background: url(/assets/img/text.png);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    h2 {
+      @apply text-2xl font-bold m-0 mb-2;
+      font-family: titillium web, sans-serif;
+    }
+    p {
+      @apply text-sm font-medium mb-0 uppercase;
+      font-family: montserrat, sans-serif;
+    }
+    a {
+      @apply inline-block uppercase text-white border-none px-3 py-5 text-sm font-bold rounded-sm mt-4 transition-all duration-200;
+      font-family: titillium web, sans-serif;
+      background: #5c91fe;
+      &:hover {
+        @apply opacity-80;
+      }
+    }
+  }
+
+  .background-video {
+    @apply absolute w-full h-full object-cover;
+    &::after {
+      @apply absolute inset-0 bg-black opacity-30;
+      content: '';
+    }
+  }
+}
