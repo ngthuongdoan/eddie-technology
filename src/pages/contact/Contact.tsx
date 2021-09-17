@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
-const Contact: FunctionComponent = (): JSX.Element => {
+const Contact: React.FC = (): JSX.Element => {
   return <div>Contact</div>;
 };
 

@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ErrorLayout: FunctionComponent = (): JSX.Element => {
+const ErrorLayout: React.FC = (): JSX.Element => {
   return (
     <>
       <div className="notfound">
