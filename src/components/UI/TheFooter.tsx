@@ -1,7 +1,7 @@
-import React, { FunctionComponent, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import footerMenu from '../../common/footerMenu';
 
-const TheFooter: FunctionComponent = (props): JSX.Element => {
+const TheFooter: React.FC = (): JSX.Element => {
   const menuGenerated = useMemo<JSX.Element[]>(() => {
     return footerMenu.map((menu) => (
       <ul key={menu.id}>

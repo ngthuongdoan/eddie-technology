@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import TheHeader from '../components/UI/TheHeader';
 import TheFooter from '../components/UI/TheFooter';
@@ -7,7 +7,7 @@ const Index = React.lazy(() => import('../pages'));
 const Services = React.lazy(() => import('../pages/services/Services'));
 const Contact = React.lazy(() => import('../pages/contact/Contact'));
 
-const DefaultLayout: FunctionComponent = (): JSX.Element => {
+const DefaultLayout: React.FC = (): JSX.Element => {
   return (
     <>
       <TheHeader />

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 import Feature from '../../model/Feature';
@@ -10,7 +10,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   direction: 'horizontal' | 'vertical';
 }
 
-const TheNavigation: FunctionComponent<Props> = (props): JSX.Element => {
+const TheNavigation: React.FC<Props> = (props): JSX.Element => {
   const justifyItem = () => {
     switch (props.position) {
       case 'start':

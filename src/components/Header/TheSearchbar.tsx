@@ -1,11 +1,11 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import navigations from '../../common/navigations';
 import suggestions from '../../common/suggestions';
 import logo from '../../assets/img/logo.svg';
 import TheNavigation from '../Common/TheNavigation';
 
-const TheSearchbar: FunctionComponent = (props): JSX.Element => {
+const TheSearchbar: React.FC = (props): JSX.Element => {
   const [searchString, setSearchString] = useState('');
 
   const chooseSuggestion = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {

@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import TheBanner from '../Header/TheBanner';
 import TheSearchbar from '../Header/TheSearchbar';
 
-const TheHeader: FunctionComponent = (props): JSX.Element => {
+const TheHeader: React.FC = (props): JSX.Element => {
   return (
     <>
       <TheBanner></TheBanner>
