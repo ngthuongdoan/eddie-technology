@@ -1,10 +1,4 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-
-export type Feature = {
-  icon: IconProp;
-  title: string;
-  path?: string;
-};
+import Feature from '../model/Feature';
 
 const FEATURES: Array<Feature> = [
   {

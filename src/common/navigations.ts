@@ -1,4 +1,4 @@
-import { Feature } from './features';
+import Feature from '../model/Feature';
 
 const NAVIGATIONS: Array<Feature> = [
   {
