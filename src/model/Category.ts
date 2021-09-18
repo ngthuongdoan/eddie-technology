@@ -1,9 +1,14 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+
 interface Category {
   label: string;
 
-  key: string | number;
+  id: string;
 
-  items?: Category[];
+  children?: string[];
+  isParent?: boolean;
+  icon?: IconProp;
+  path?: string;
 }
 
 export default Category;
