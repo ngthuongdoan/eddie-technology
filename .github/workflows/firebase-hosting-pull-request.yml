@@ -7,6 +7,15 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
+    env:
+      SKIP_PREFLIGHT_CHECK: 'true'
+      BROWSER: 'none'
+      REACT_APP_APIKEY: 'AIzaSyCYVGtkHCFL6p6cqvyMSX8oAu_Byiyty8g'
+      REACT_APP_AUTHDOMAIN: 'eddie-technology.firebaseapp.com'
+      REACT_APP_PID: 'eddie-technology'
+      REACT_APP_SB: 'eddie-technology.appspot.com'
+      REACT_APP_APPID: '1:241613230165:web:925a34522b467e22e644dc'
+      REACT_APP_MID: '241613230165'
     steps:
       - uses: actions/checkout@v2
       - uses: borales/actions-yarn@v2.3.0
