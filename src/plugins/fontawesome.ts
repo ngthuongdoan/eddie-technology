@@ -1,6 +1,5 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faWatchFitness,
   faMapMarkedAlt,
   faHeadset,
   faNewspaper,
@@ -29,6 +28,5 @@ library.add(
   faDesktop,
   faMobileAlt,
   faTabletAlt,
-  faHeadphones,
-  faWatchFitness
+  faHeadphones
 );
