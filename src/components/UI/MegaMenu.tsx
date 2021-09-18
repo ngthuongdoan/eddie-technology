@@ -1,23 +1,53 @@
-import React, { useState, MouseEvent } from 'react';
-import categories from '../../common/categories';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState, useEffect, useCallback } from 'react';
 import Category from '../../model/Category';
+import { getAllCategory } from '../../services/category.service';
 
 interface Props {
   className: string;
 }
 
 const MegaMenu: React.FC<Props> = (props): JSX.Element => {
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [parentCategories, setParentCategories] = useState<Category[]>([]);
   const [subCategories, setSubCategories] = useState<Category[]>([]);
 
-  const closeSubmenu = () => {
-    setSubCategories([]);
-  };
+  const fetchCategory = useCallback(async () => {
+    const categoriesDocs = await getAllCategory();
+    setCategories([...categoriesDocs]);
+    setParentCategories([...categoriesDocs.filter((c) => c.isParent)]);
+  }, []);
 
-  const generateCategory = (key: number) => {
+  useEffect(() => {
+    fetchCategory();
+  }, [fetchCategory]);
+
+  const closeSubmenu = useCallback(() => {
+    setSubCategories([]);
+  }, []);
+
+  const generateCategory = (id: string) => {
+    // Clear sub-menu
     closeSubmenu();
-    const response = categories.find((c) => c.key === key) as Category;
-    if (response!.items) {
-      setSubCategories([...response.items]);
+    //  Find children
+    const response = parentCategories.find((c) => c.id === id) as Category;
+    const { children } = response!;
+    if (children) {
+      // Generate
+      const sub: Category[] = [];
+      children.every((child) => {
+        const existCategory = categories.find((element) => element.id === child);
+        if (existCategory) {
+          const category: Category = {
+            id: existCategory!.id,
+            label: existCategory!.label,
+          };
+          sub.push(category);
+          return true;
+        }
+        return false;
+      });
+      setSubCategories([...sub]);
     }
   };
 
@@ -26,9 +56,16 @@ const MegaMenu: React.FC<Props> = (props): JSX.Element => {
       {/* Main Category */}
       <div className="main-menu">
         <ul>
-          {categories.map((category) => (
-            <li key={category.key} onMouseMove={() => generateCategory(+category.key)}>
-              {category.label}
+          {parentCategories.map((category) => (
+            <li key={category.id} onMouseMove={() => generateCategory(`${category.id}`)}>
+              {category.icon && (
+                <FontAwesomeIcon
+                  className="justify-self-center w-4 mr-2"
+                  icon={category.icon}
+                  size="lg"
+                />
+              )}
+              <span>{category.label}</span>
             </li>
           ))}
         </ul>
@@ -37,7 +74,7 @@ const MegaMenu: React.FC<Props> = (props): JSX.Element => {
       {subCategories.length !== 0 && (
         <ul className="sub-menu">
           {subCategories.map((category) => (
-            <li key={category.key}>{category.label}</li>
+            <li key={category.id}>{category.label}</li>
           ))}
         </ul>
       )}
