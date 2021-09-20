@@ -42,7 +42,14 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": ["**/*.test.js", "**/*.test.jsx", "**/*.test.ts", "**/*.test.tsx", "src/tests/**/*", "**/*.config.js"]
+        "devDependencies": [
+          "**/*.test.js",
+          "**/*.test.jsx",
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "src/tests/**/*",
+          "**/*.config.js"
+        ]
       }
     ],
     "react/jsx-props-no-spreading": "off",
@@ -54,6 +61,7 @@
     "react/jsx-wrap-multilines": "off",
     "react/destructuring-assignment": "off",
     "react/no-array-index-key": "off",
-    "react/self-closing-comp": "off"
+    "react/self-closing-comp": "off",
+    "react/jsx-closing-tag-location": "off"
   }
 }

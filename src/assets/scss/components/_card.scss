@@ -1,0 +1,8 @@
+@layer components {
+  .card {
+    @apply w-full h-full bg-white shadow-xl rounded-md;
+    h1 {
+      @apply font-bold text-black text-xl;
+    }
+  }
+}
