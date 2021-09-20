@@ -1,0 +1,211 @@
+{
+  "colors": ["Xanh Dương", "Vàng đồng", "Bạc", "Xám"],
+  "description": "https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/dien-thoai-iphone-12-64gb%2Fiphone-12.html?alt=media&token=6fc70900-e0c4-463a-aa85-3356e557baae",
+  "images": [
+    "https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/dien-thoai-iphone-12-pro-max%2Fiphone-12-pro-max-1-org.jpg?alt=media&token=25d5d5f1-0555-4e03-9783-d9b00459ec4c",
+    "https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/dien-thoai-iphone-12-pro-max%2Fiphone-12-pro-max-bac-1-org.jpg?alt=media&token=eaada44c-1adf-4fcb-af84-23304adfe977",
+    "https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/dien-thoai-iphone-12-pro-max%2Fiphone-12-pro-max-xam-1-org.jpg?alt=media&token=b7f10e4d-4b73-48e5-b478-cb8efa22cbd4",
+    "https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/dien-thoai-iphone-12-pro-max%2Fiphone-12-pro-max-xanh-duong-1-org.jpg?alt=media&token=7c7cf12e-f8b3-4d34-b8d1-9b12d8bc1b9b"
+  ],
+  "listedPrice": 32990000,
+  "name": "Điện thoại iPhone 12 Pro Max",
+  "specifications": [
+    {
+      "title": "Màn hình",
+      "value": [
+        {
+          "title": "Công nghệ màn hình",
+          "value": "OLED"
+        },
+        {
+          "title": "Độ phân giải",
+          "value": "1170 x 2532 Pixels"
+        },
+        {
+          "title": "Màn hình rộng",
+          "value": "6.1\" - Tần số quét 60 Hz"
+        },
+        {
+          "title": "Độ sáng tối đa",
+          "value": "1200 nits"
+        },
+        {
+          "title": "Mặt kính cảm ứng",
+          "value": "Kính cường lực Ceramic Shield"
+        }
+      ]
+    },
+    {
+      "title": "Camera sau",
+      "value": [
+        {
+          "title": "Độ phân giải",
+          "value": "2 camera 12 MP"
+        },
+        {
+          "title": "Quay phim",
+          "value": "4K 2160p@30fps<br/>4K 2160p@60fps<br/>FullHD 1080p@120fps<br/>HD 720p@30fps<br/>FullHD 1080p@240fps<br/>FullHD 1080p@60fps<br/>4K 2160p@24fps<br/>FullHD 1080p@30fps"
+        },
+        {
+          "title": "Đèn Flash",
+          "value": "Đèn LED kép"
+        },
+        {
+          "title": "Tính năng",
+          "value": "Ban đêm (Night Mode)<br/>Trôi nhanh thời gian (Time Lapse)<br/>Quay chậm (Slow Motion)<br/>Xóa phông<br/>Toàn cảnh (Panorama)<br/>Tự động lấy nét (AF)<br/>Nhận diện khuôn mặt<br/>HDR<br/>Zoom kỹ thuật số<br/>Góc rộng (Wide)<br/>Góc siêu rộng (Ultrawide)"
+        }
+      ]
+    },
+    {
+      "title": "Camera trước",
+      "value": [
+        {
+          "title": "Độ phân giải",
+          "value": "12 MP"
+        },
+        {
+          "title": "Tính năng",
+          "value": "Ban đêm (Night Mode)<br/>Trôi nhanh thời gian (Time Lapse)<br/>Quay chậm (Slow Motion)<br/>Xóa phông<br/>Toàn cảnh (Panorama)<br/>Tự động lấy nét (AF)<br/>Nhận diện khuôn mặt<br/>HDR<br/>Zoom kỹ thuật số<br/>Góc rộng (Wide)<br/>Góc siêu rộng (Ultrawide)"
+        }
+      ]
+    },
+    {
+      "title": "Hệ điều hành & CPU",
+      "value": [
+        {
+          "title": "Hệ điều hành",
+          "value": "iOS 14"
+        },
+        {
+          "title": "Chip xử lý (CPU)",
+          "value": "Apple A14 Bionic 6 nhân"
+        },
+        {
+          "title": "Tốc độ CPU",
+          "value": "2 nhân 3.1 GHz & 4 nhân 1.8 GHz"
+        },
+        {
+          "title": "Chip đồ họa (GPU)",
+          "value": "Apple GPU 4 nhân"
+        }
+      ]
+    },
+    {
+      "title": "Bộ nhớ & Lưu trữ",
+      "value": [
+        {
+          "title": "RAM",
+          "value": "4 GB"
+        },
+        {
+          "title": "Bộ nhớ trong",
+          "value": "64 GB"
+        },
+        {
+          "title": "Bộ nhớ còn lại (khả dụng) khoảng",
+          "value": "49 GB"
+        },
+        {
+          "title": "Danh bạ",
+          "value": "Không giới hạn"
+        }
+      ]
+    },
+    {
+      "title": "Kết nối",
+      "value": [
+        {
+          "title": "Mạng di động",
+          "value": "Hỗ trợ 5G"
+        },
+        {
+          "title": "SIM",
+          "value": "1 Nano SIM & 1 eSIM"
+        },
+        {
+          "title": "Wifi",
+          "value": "Wi-Fi 802.11 a/b/g/n/ac/ax<br/>Wi-Fi MIMO<br/>Dual-band (2.4 GHz/5 GHz)<br/>Wi-Fi hotspot"
+        },
+        {
+          "title": "Bluetooth",
+          "value": "A2DP, v5.0"
+        },
+        {
+          "title": "Cổng kết nối/sạc",
+          "value": "Lightning"
+        },
+        {
+          "title": "Jack tai nghe",
+          "value": "Lightning"
+        }
+      ]
+    },
+    {
+      "title": "Pin & Sạc",
+      "value": [
+        {
+          "title": "Loại pin",
+          "value": "Li-Ion"
+        },
+        {
+          "title": "Dung lượng pin",
+          "value": "2815 mAh"
+        },
+        {
+          "title": "Hỗ trợ sạc tối đa",
+          "value": "20 W"
+        },
+        {
+          "title": "Công nghệ pin",
+          "value": "Sạc pin nhanh<br/>Tiết kiệm pin<br/>Sạc không dây MagSafe<br/>Sạc không dây"
+        }
+      ]
+    },
+    {
+      "title": "Tiện ích",
+      "value": [
+        {
+          "title": "Bảo mật nâng cao",
+          "value": "Mở khoá khuôn mặt Face ID"
+        },
+        {
+          "title": "Kháng nước, bụi",
+          "value": "IP68"
+        },
+        {
+          "title": "Ghi âm",
+          "value": "Có (microphone chuyên dụng chống ồn)"
+        },
+        {
+          "title": "Xem phim",
+          "value": "H.264(MPEG4-AVC)"
+        },
+        {
+          "title": "Nghe nhạc",
+          "value": "Lossless<br/>FLAC<br/>AAC<br/>MP3"
+        }
+      ]
+    },
+    {
+      "title": "Thông tin chung",
+      "value": [
+        {
+          "title": "Thiết kế",
+          "value": "Nguyên khối"
+        },
+        {
+          "title": "Chất liệu",
+          "value": "Khung nhôm & Mặt lưng kính cường lực"
+        },
+        {
+          "title": "Kích thước, khối lượng",
+          "value": "Dài 146.7 mm - Ngang 71.5 mm - Dày 7.4 mm - Nặng 164 g"
+        },
+        {
+          "title": "Thời điểm ra mắt",
+          "value": "10/2020"
+        }
+      ]
+    }
+  ]
+}
