@@ -24,20 +24,41 @@ const TheSearchbar: React.FC = (props): JSX.Element => {
       </div>
       <div className="searchbar">
         <div className="flex items-center">
-          <input type="text" placeholder="Bạn muốn tìm gì?" value={searchString} onChange={changeSearchString} onBlur={changeSearchString} />
-          <div role="button" className="bg-primary p-2 rounded-md cursor-pointer transform -translate-x-full ">
+          <input
+            type="text"
+            placeholder="Bạn muốn tìm gì?"
+            value={searchString}
+            onChange={changeSearchString}
+            onBlur={changeSearchString}
+          />
+          <div
+            role="button"
+            className="bg-primary p-2 rounded-md cursor-pointer transform -translate-x-full "
+          >
             <FontAwesomeIcon icon="search" color="#ffffff" />
           </div>
         </div>
-        <ul className="list-none inline-flex italic font-thin text-xs mt-2 gap-2">
+        <ul className="list-none inline-flex font-normal text-xs mt-2 gap-2">
           {suggestions.map((s) => (
-            <li key={s} role="menuitem" onClick={chooseSuggestion} aria-hidden="true" className="cursor-pointer text-blue-500 underline">
+            <li
+              key={s}
+              role="menuitem"
+              onClick={chooseSuggestion}
+              aria-hidden="true"
+              className="cursor-pointer text-text"
+            >
               {s}
             </li>
           ))}
         </ul>
       </div>
-      <TheNavigation className="-ml-60 gap-8 font-medium" items={navigations} position="end" size="sm" direction="vertical"></TheNavigation>
+      <TheNavigation
+        className="-ml-60 gap-8 font-medium"
+        items={navigations}
+        position="end"
+        size="sm"
+        direction="vertical"
+      ></TheNavigation>
     </div>
   );
 };

@@ -21,7 +21,7 @@ const MainPage: React.FC = () => {
         </div>
       </section>
       <section className="my-5 p-5">
-        <Card className="py-5">
+        <Card className="pt-5 pb-8">
           <h1 className="ml-5">Thương hiệu nổi bật</h1>
           <MultipleItemsCarousel></MultipleItemsCarousel>
         </Card>
