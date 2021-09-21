@@ -2,15 +2,13 @@
 /* eslint-disable import/no-dynamic-require */
 import React, { useState, useCallback, useEffect } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Link } from 'react-router-dom';
 import Card from '../../components/UI/Card';
 import Product from '../../model/Product';
 import { getAllProducts } from '../../services/product.service';
+import { toCurrency } from '../../utils';
 import MultipleItemsCarousel from './Carousel';
 import MegaMenu from './MegaMenu';
-
-const toCurrency = (currency: number): string => {
-  return Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(currency);
-};
 
 const MainPage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -22,14 +20,23 @@ const MainPage: React.FC = () => {
 
   const generatePrice = (p: Product): JSX.Element => {
     if (p.promotionPercent && p.promotionPrice) {
+      // Have Promotion Price
       return (
         <>
-          {toCurrency(p.promotionPrice)}
-          <span className="ml-2 text-red-600">-{p.promotionPercent}%</span>
+          <p className="line-through mb-2 font-thin">{toCurrency(p.promotionPrice)}</p>
+          <p>
+            <span>{toCurrency(p.promotionPrice)}</span>
+            <span className="ml-2 text-red-600">-{p.promotionPercent}%</span>
+          </p>
         </>
       );
     }
-    return <>{toCurrency(p.listedPrice)}</>;
+    return (
+      <>
+        {' '}
+        <p>{toCurrency(p.listedPrice)}</p>
+      </>
+    );
   };
   useEffect(() => {
     fetchProducts();
@@ -59,14 +66,18 @@ const MainPage: React.FC = () => {
         <hr className="my-5 mx-24 h-1 bg-primary" />
         <div className="grid grid-cols-5 grid-rows-3 gap-4 mx-24">
           {products.map((p) => (
-            <Card key={p.id} className="h-full m-5 ml-0 px-5 shadow-none">
-              <div
-                className="bg-center bg-cover rounded-md w-full h-full"
-                style={{ backgroundImage: `url(${p.images[0]})` }}
-              ></div>
-              <h3 className="font-light text-xs mt-5 mb-2">{p.name}</h3>
-              <p className="italic font-bold text-text text-sm">{generatePrice(p)}</p>
-            </Card>
+            <Link key={p.id} to={`/product/${p.id}`}>
+              <Card className="h-full m-5 ml-0  bg-white rounded-md shadow-md">
+                <div
+                  className="bg-center bg-contain bg-no-repeat rounded-md w-full h-52"
+                  style={{ backgroundImage: `url(${p.images[0]})` }}
+                ></div>
+                <div className="mx-5">
+                  <h3 className="font-light text-xs mt-5 mb-2">{p.name}</h3>
+                  <div className="italic font-bold text-text text-sm">{generatePrice(p)}</div>
+                </div>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>

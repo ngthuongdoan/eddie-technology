@@ -1,0 +1,5 @@
+@layer components {
+  .tag {
+    @apply block p-1 border-2 border-red-500 bg-red-400 text-white rounded-md font-bold text-sm;
+  }
+}

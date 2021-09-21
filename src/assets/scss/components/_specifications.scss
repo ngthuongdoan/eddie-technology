@@ -1,0 +1,12 @@
+@layer components {
+  .specifications {
+    @apply w-96 text-left;
+    th,
+    td {
+      @apply p-2 align-top text-sm;
+    }
+    .header {
+      @apply bg-primary text-white p-4 text-base;
+    }
+  }
+}

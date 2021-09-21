@@ -1,6 +1,6 @@
 interface Specifications {
   title: string;
-  value: string | string[] | Specifications[];
+  value: string[] | Specifications[];
 }
 
 export default Specifications;

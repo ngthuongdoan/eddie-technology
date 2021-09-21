@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import navigations from '../../common/navigations';
 import suggestions from '../../common/suggestions';
 import logo from '../../assets/img/logo.svg';
@@ -17,11 +18,11 @@ const TheSearchbar: React.FC = (props): JSX.Element => {
     setSearchString(event.target.value);
   };
   return (
-    <div className="bg-background text-text font-bold w-full py-5 px-20 flex">
-      <div className="w-max flex flex-col items-center justify-center gap-2">
+    <div className="bg-white shadow-md text-text font-bold w-full py-5 px-20 flex">
+      <Link to="/" className="w-max flex flex-col items-center justify-center gap-2">
         <img src={logo} alt="Logo" width="50px" />
         <h1>EDDIE</h1>
-      </div>
+      </Link>
       <div className="searchbar">
         <div className="flex items-center">
           <input

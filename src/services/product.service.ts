@@ -18,25 +18,26 @@ export const getAllProducts = async (): Promise<Product[]> => {
       colors: product.data().colors,
       description: product.data().description,
       specifications: product.data().specifications,
+      brand: product.data().brand,
     });
   });
   return products;
 };
 
-// export const getProductByType = async (isParent: boolean): Promise<Product[]> => {
-//   const q = query(productStore, where('isParent', '==', isParent));
+export const getProduct = async (id: string): Promise<Product> => {
+  const docRef = doc(db, 'product', id);
+  const product = await getDoc(docRef);
 
-//   const querySnapshot = await getDocs(q);
-//   const products: Product[] = [];
-//   querySnapshot.forEach((product) => {
-//     // doc.data() is never undefined for query doc snapshots
-//     products.push({
-//       id: product.id,
-//       label: product.data().label,
-//       children: product.data().children,
-//       isParent: product.data().isParent,
-//       icon: product.data().icon,
-//     });
-//   });
-//   return products;
-// };
+  return {
+    id: product.id,
+    name: product.data()!.name,
+    brand: product.data()!.brand,
+    images: product.data()!.images,
+    listedPrice: product.data()!.listedPrice,
+    promotionPrice: product.data()?.promotionPrice,
+    promotionPercent: product.data()?.promotionPercent,
+    colors: product.data()!.colors,
+    description: product.data()!.description,
+    specifications: product.data()!.specifications,
+  };
+};
