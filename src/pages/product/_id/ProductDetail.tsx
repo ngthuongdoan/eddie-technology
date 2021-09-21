@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Product from '../../../model/Product';
 import { getProduct } from '../../../services/product.service';
 import ProductDescription from './ProductDescription';
@@ -9,15 +9,16 @@ import ProductSpecification from './ProductSpecification';
 const ProductDetail: React.FC = (props): JSX.Element => {
   const params: { id: string } = useParams();
   const [product, setProduct] = useState<Product>();
+  const history = useHistory();
 
   const fetchProduct = useCallback(async () => {
     const response = await getProduct(params.id);
     if (response) {
       setProduct(response as Product);
     } else {
-      console.error('Error');
+      history.replace('/');
     }
-  }, [params]);
+  }, [params, history]);
 
   useEffect(() => {
     fetchProduct();

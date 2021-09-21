@@ -8,6 +8,7 @@ const ProductDescription: React.FC<ProductProps> = ({ product }): JSX.Element =>
       <h1 className="font-bold text-2xl mb-8">Mô tả sản phẩm</h1>
       <div
         className="description"
+        // eslint-disable-next-line
         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(product.description) }}
       ></div>
       ;

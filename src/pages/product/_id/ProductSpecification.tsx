@@ -3,9 +3,6 @@ import { ProductProps } from '../../../model/Product';
 import Specifications from '../../../model/Specifications';
 
 const ProductSpecification: React.FC<ProductProps> = ({ product }): JSX.Element => {
-  console.log('🚀 --------------------------------------------------------------');
-  console.log('🚀 ~ file: ProductSpecification.tsx ~ line 6 ~ product', product);
-  console.log('🚀 --------------------------------------------------------------');
   return (
     <div>
       <h1 className="font-bold text-2xl mb-8">Thông số cấu hình</h1>

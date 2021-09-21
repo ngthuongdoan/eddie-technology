@@ -125,6 +125,7 @@
   "devDependencies": {
     "autoprefixer": "^9",
     "cross-env": "^7.0.3",
+    "eslint-plugin-risxss": "^2.1.0",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }

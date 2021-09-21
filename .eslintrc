@@ -1,9 +1,14 @@
 {
-  "plugins": ["prettier", "@typescript-eslint"],
+  "plugins": ["prettier", "@typescript-eslint", "risxss"],
   "extends": ["airbnb-typescript", "react-app", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
   "settings": {
     "import/resolver": {
@@ -13,6 +18,12 @@
     }
   },
   "rules": {
+    "risxss/catch-potential-xss-react": [
+      "error",
+      {
+        "trustedLibraries": ["xss"]
+      }
+    ],
     "object-curly-spacing": ["warn", "always"],
     "no-unused-vars": ["off"],
     "@typescript-eslint/semi": ["off"],
@@ -62,6 +73,7 @@
     "react/destructuring-assignment": "off",
     "react/no-array-index-key": "off",
     "react/self-closing-comp": "off",
-    "react/jsx-closing-tag-location": "off"
+    "react/jsx-closing-tag-location": "off",
+    "react/no-danger": "off"
   }
 }

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { useHistory } from 'react-router-dom';
 import { storage } from '../plugins/firebase';
 
 const UploadLayout: React.FC = (): JSX.Element => {
   const [imageAsFile, setImageAsFile] = useState<File | string>('');
   const [imageAsUrl, setImageAsUrl] = useState('');
+  const history = useHistory();
 
   const handleImageAsFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const image = e.target.files![0];
@@ -15,7 +17,7 @@ const UploadLayout: React.FC = (): JSX.Element => {
     e.preventDefault();
     // async magic goes here...
     if (imageAsFile === '') {
-      console.error(`not an image, the image file is a ${typeof imageAsFile}`);
+      history.replace('/');
     } else {
       const storageRef = ref(storage, `/dien-thoai-iphone-12-64gb/${(imageAsFile as File).name}`);
       uploadBytes(storageRef, imageAsFile as File).then((snapshot) => {
