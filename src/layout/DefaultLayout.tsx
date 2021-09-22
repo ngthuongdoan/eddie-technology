@@ -4,9 +4,8 @@ import TheHeader from '../components/UI/TheHeader';
 import TheFooter from '../components/UI/TheFooter';
 
 const MainPage = React.lazy(() => import('../pages/index/MainPage'));
-const ProductDetail = React.lazy(() => import('../pages/product/_id/ProductDetail'));
-const Services = React.lazy(() => import('../pages/services/Services'));
-const Contact = React.lazy(() => import('../pages/contact/Contact'));
+const ProductDetailPage = React.lazy(() => import('../pages/product/_id/ProductDetailPage'));
+const CategoryPage = React.lazy(() => import('../pages/category/CategoryPage'));
 
 const DefaultLayout: React.FC = (): JSX.Element => {
   return (
@@ -16,9 +15,8 @@ const DefaultLayout: React.FC = (): JSX.Element => {
         <Suspense fallback={<h1>Loading...</h1>}>
           <Switch>
             <Route exact path="/" component={MainPage} />
-            <Route exact path="/product/:id" component={ProductDetail} />
-            <Route exact path="/services" component={Services} />
-            <Route exact path="/contact" component={Contact} />
+            <Route exact path="/product/:id" component={ProductDetailPage} />
+            <Route exact path="/category/:slug" component={CategoryPage} />
             <Route path="/*">
               <Redirect to="/404"></Redirect>
             </Route>

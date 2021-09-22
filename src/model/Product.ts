@@ -4,6 +4,7 @@ interface Product {
   id: string;
   name: string;
   brand: string;
+  category: string;
   images: string[];
   listedPrice: number;
   promotionPrice: number;

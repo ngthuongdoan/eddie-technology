@@ -5,10 +5,9 @@ interface Category {
 
   id: string;
 
-  children?: string[];
-  isParent?: boolean;
-  icon?: IconProp;
-  path?: string;
+  brands: string[];
+  icon: IconProp;
+  path: string;
 }
 
 export default Category;
