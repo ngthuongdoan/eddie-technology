@@ -19,7 +19,7 @@ const CategoryPage: React.FC<Props> = (props): JSX.Element => {
   const fetchProducts = useCallback(async () => {
     const productsDocs = await getAllProductsWithCategory(categoryId, { brand });
     setProducts([...productsDocs]);
-  }, []);
+  }, [categoryId, brand]);
 
   useEffect(() => {
     fetchProducts();
