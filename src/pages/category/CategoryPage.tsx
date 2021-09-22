@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import NoValue from '../../components/Common/NoValue';
+import useFetch from '../../hooks/use-fetch';
 import { useQuery } from '../../hooks/use-query';
 import Product from '../../model/Product';
 import { getAllProductsWithCategory } from '../../services/product.service';
@@ -12,19 +13,9 @@ interface Props {}
 const CategoryPage: React.FC<Props> = (props): JSX.Element => {
   const { state } = useLocation<{ id: string }>();
   const { id: categoryId } = state;
-  const [products, setProducts] = useState<Product[]>();
   const query = useQuery();
   const brand = query.get('brand');
-  // Init product data
-  const fetchProducts = useCallback(async () => {
-    const productsDocs = await getAllProductsWithCategory(categoryId, { brand });
-    setProducts([...productsDocs]);
-  }, [categoryId, brand]);
-
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
-
+  const { data: products } = useFetch<Product>(useCallback(() => getAllProductsWithCategory(categoryId, { brand }), [categoryId, brand]));
   return (
     <>
       <TheFilter></TheFilter>

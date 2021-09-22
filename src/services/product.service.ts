@@ -1,7 +1,8 @@
-import { collection, getDocs, doc, query, where, getDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, query, where, getDoc, QueryConstraint } from 'firebase/firestore';
 import Filter from '../model/Filter';
 import Product from '../model/Product';
 import { db } from '../plugins/firebase';
+import { removeNullAndUndefined } from '../utils';
 
 export const productStore = collection(db, 'product');
 
@@ -26,8 +27,20 @@ export const getAllProducts = async (): Promise<Product[]> => {
   return products;
 };
 
+const generateQuery = (filter: Filter) => {
+  const refinedFilter: Record<string, Filter> = removeNullAndUndefined<Filter>(filter) as Record<string, Filter>;
+  const result: QueryConstraint[] = [];
+  for (const key in refinedFilter) {
+    if (Object.prototype.hasOwnProperty.call(refinedFilter, key)) {
+      result.push(where(key, '==', refinedFilter[key]));
+    }
+  }
+  return result;
+};
+
 export const getAllProductsWithCategory = async (categoryId: string, filter: Filter): Promise<Product[]> => {
-  const q = query(productStore, where('category', '==', categoryId), where('brand', '==', filter.brand));
+  const refinedFilter = generateQuery(filter);
+  const q = query(productStore, where('category', '==', categoryId), ...refinedFilter);
 
   const querySnapshot = await getDocs(q);
   const products: Product[] = [];

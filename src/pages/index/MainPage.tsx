@@ -9,19 +9,21 @@ import Product from '../../model/Product';
 import { getAllProducts } from '../../services/product.service';
 import MultipleItemsCarousel from './Carousel';
 import MegaMenu from '../../components/Common/MegaMenu';
+import useFetch from '../../hooks/use-fetch';
 
 const MainPage: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  // const [products, setProducts] = useState<Product[]>([]);
 
-  const fetchProducts = useCallback(async () => {
-    const productDocs = await getAllProducts();
-    setProducts([...productDocs]);
-  }, []);
+  // const fetchProducts = useCallback(async () => {
+  //   const productDocs = await getAllProducts();
+  //   setProducts([...productDocs]);
+  // }, []);
 
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, [fetchProducts]);
 
+  const { data: products } = useFetch<Product>(getAllProducts);
   return (
     <>
       <section>
@@ -45,11 +47,12 @@ const MainPage: React.FC = () => {
         <h1 className="text-3xl font-bold text-black text-center">Dành cho bạn</h1>
         <hr className="my-5 mx-24 h-1 bg-primary" />
         <div className="grid grid-cols-5 grid-rows-3 gap-4 mx-24">
-          {products.map((p) => (
-            <Link key={p.id} to={`/product/${p.id}`}>
-              <ProductCard className="hover:shadow-inner" product={p} />
-            </Link>
-          ))}
+          {products &&
+            products!.map((p) => (
+              <Link key={p.id} to={`/product/${p.id}`}>
+                <ProductCard className="hover:shadow-inner" product={p} />
+              </Link>
+            ))}
         </div>
       </section>
     </>
