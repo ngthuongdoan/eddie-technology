@@ -23,6 +23,8 @@ const App = () => {
           property="og:image"
           content="https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/og_image.png?alt=media&token=de1d9f8a-c37b-4b2d-8511-de446c34e790"
         />
+        <meta property="og:image:width" content="600" />
+        <meta property="og:image:height" content="314" />
         <meta
           property="og:image:url"
           content="https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/og_image.png?alt=media&token=de1d9f8a-c37b-4b2d-8511-de446c34e790"
@@ -42,6 +44,8 @@ const App = () => {
           name="twitter:image:src"
           content="https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/og_image.png?alt=media&token=de1d9f8a-c37b-4b2d-8511-de446c34e790"
         ></meta>
+        <meta property="twitter:image:width" content="600" />
+        <meta property="twitter:image:height" content="314" />
         <meta itemProp="name" content="Eddie Technology"></meta>
         <meta
           itemProp="description"
@@ -51,6 +55,8 @@ const App = () => {
           itemProp="image"
           content="https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/og_image.png?alt=media&token=de1d9f8a-c37b-4b2d-8511-de446c34e790"
         ></meta>
+        <meta property="image:width" content="600" />
+        <meta property="image:height" content="314" />
         <link rel="canonical" href="https://eddie-technology.web.app"></link>
       </Helmet>
       <BrowserRouter>
