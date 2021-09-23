@@ -18,6 +18,13 @@
     }
   },
   "rules": {
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["state"]
+      }
+    ],
     "risxss/catch-potential-xss-react": [
       "error",
       {
@@ -53,14 +60,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          "**/*.test.js",
-          "**/*.test.jsx",
-          "**/*.test.ts",
-          "**/*.test.tsx",
-          "src/tests/**/*",
-          "**/*.config.js"
-        ]
+        "devDependencies": ["**/*.test.js", "**/*.test.jsx", "**/*.test.ts", "**/*.test.tsx", "src/tests/**/*", "**/*.config.js"]
       }
     ],
     "react/jsx-props-no-spreading": "off",
