@@ -1,17 +1,10 @@
 import React from 'react';
+import ClassNameProps from '../../model/ClassNameProps';
 
-interface Props {
-  className?: string;
-}
+interface Props {}
 
-const defaultProps: Props = {
-  className: '',
-};
-
-const Card: React.FC<Props> = (props): JSX.Element => {
+const Card: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
   return <div className={`card ${props.className}`}>{props.children}</div>;
 };
-
-Card.defaultProps = defaultProps;
 
 export default Card;

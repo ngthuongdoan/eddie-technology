@@ -12,7 +12,7 @@ const DefaultLayout: React.FC = (): JSX.Element => {
     <>
       <TheHeader />
       <main>
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={<></>}>
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route exact path="/product/:id" component={ProductDetailPage} />
