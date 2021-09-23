@@ -1,14 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import MetaTags from 'react-meta-tags';
+import { Helmet } from 'react-helmet';
 import AppRouter from './router/AppRouter';
 import store from './store';
 
 const App = () => {
   return (
     <>
-      <MetaTags>
+      <Helmet>
         <title>Eddie Technology</title>
         <meta charSet="utf-8"></meta>
         <meta
@@ -52,7 +52,7 @@ const App = () => {
           content="https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/og_image.png?alt=media&token=de1d9f8a-c37b-4b2d-8511-de446c34e790"
         ></meta>
         <link rel="canonical" href="https://eddie-technology.web.app"></link>
-      </MetaTags>
+      </Helmet>
       <BrowserRouter>
         <Provider store={store}>
           <AppRouter />
