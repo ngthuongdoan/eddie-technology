@@ -22,7 +22,7 @@ const ProductOverview: React.FC<ProductProps> = ({ product }): JSX.Element => {
           <p className="line-through mb-2 font-thin">{toCurrency(p.promotionPrice)}</p>
           <p className="flex items-center ">
             <span>{toCurrency(p.promotionPrice)}</span>
-            <Tag className="ml-3">-{p.promotionPercent}%</Tag>
+            <Tag className="ml-3 border-2 border-red-500 bg-red-400 text-white font-bold">-{p.promotionPercent}%</Tag>
           </p>
         </>
       );

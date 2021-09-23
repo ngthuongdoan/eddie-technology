@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import NoValue from '../../components/Common/NoValue';
@@ -9,7 +9,7 @@ import Product from '../../model/Product';
 import { getAllProductsWithCategory } from '../../services/product.service';
 import { RootState } from '../../store';
 import ProductList from './ProductList';
-import TheFilter from './TheFilter';
+import FilterContainer from './FilterContainer';
 
 interface Props {}
 
@@ -25,15 +25,14 @@ const CategoryPage: React.FC<Props> = (props): JSX.Element => {
     <>
       {isLoading && <Loading></Loading>}
       {!isLoading && (
-        <div className="w-full h-screen px-20 py-10">
-          <TheFilter className=""></TheFilter>
-          <div className="bg-gray-50 w-full h-full rounded-lg shadow-lg p-5">
-            {products && (products as Product[]).length !== 0 ? (
-              <ProductList className="" products={products as Product[]}></ProductList>
-            ) : (
-              <NoValue>Không có sản phẩm</NoValue>
-            )}
-          </div>
+        <div className="w-full min-h-screen py-10 bg-white">
+          <FilterContainer categoryId={categoryId} className="px-10 mb-10"></FilterContainer>
+          <hr className="w-full bg-background h-5" />
+          {products && (products as Product[]).length !== 0 ? (
+            <ProductList className="" products={products as Product[]}></ProductList>
+          ) : (
+            <NoValue>Không có sản phẩm</NoValue>
+          )}
         </div>
       )}
     </>
