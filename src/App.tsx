@@ -19,8 +19,14 @@ const App = () => {
         <meta property="og:site_name" content="Eddie Technology" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://eddie-technology.web.app/" />
-        <meta property="og:image" content="https://eddie-technology.web.app/og_image.jpg" />
-        <meta property="og:image:url" content="https://eddie-technology.web.app/og_image.jpg" />
+        <meta
+          property="og:image"
+          content="https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/og_image.png?alt=media&token=de1d9f8a-c37b-4b2d-8511-de446c34e790"
+        />
+        <meta
+          property="og:image:url"
+          content="https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/og_image.png?alt=media&token=de1d9f8a-c37b-4b2d-8511-de446c34e790"
+        />
         <meta
           property="og:description"
           content="Eddie Technology provides you a lot of technology product of famous brands like Dell, Asus, Acer, MSI, Macbook, Apple, Samsung,... We provide excellent services and affordable price for you"
@@ -32,13 +38,19 @@ const App = () => {
           name="twitter:description"
           content="Eddie Technology provides you a lot of technology product of famous brands like Dell, Asus, Acer, MSI, Macbook, Apple, Samsung,... We provide excellent services and affordable price for you"
         ></meta>
-        <meta name="twitter:image:src" content="https://eddie-technology.web.app/og_image.jpg"></meta>
+        <meta
+          name="twitter:image:src"
+          content="https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/og_image.png?alt=media&token=de1d9f8a-c37b-4b2d-8511-de446c34e790"
+        ></meta>
         <meta itemProp="name" content="Eddie Technology"></meta>
         <meta
           itemProp="description"
           content="Eddie Technology provides you a lot of technology product of famous brands like Dell, Asus, Acer, MSI, Macbook, Apple, Samsung,... We provide excellent services and affordable price for you"
         ></meta>
-        <meta itemProp="image" content="https://eddie-technology.web.app/og_image.jpg"></meta>
+        <meta
+          itemProp="image"
+          content="https://firebasestorage.googleapis.com/v0/b/eddie-technology.appspot.com/o/og_image.png?alt=media&token=de1d9f8a-c37b-4b2d-8511-de446c34e790"
+        ></meta>
         <link rel="canonical" href="https://eddie-technology.web.app"></link>
       </MetaTags>
       <BrowserRouter>
