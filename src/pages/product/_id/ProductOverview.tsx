@@ -1,12 +1,9 @@
 import React from 'react';
 import Slider, { Settings } from 'react-slick';
 import Tag from '../../../components/UI/Tag';
-import Product from '../../../model/Product';
+import Product, { ProductProps } from '../../../model/Product';
 import { toCurrency } from '../../../utils';
 
-interface Props {
-  product: Product;
-}
 const settings: Settings = {
   dots: true,
   infinite: true,
@@ -17,7 +14,7 @@ const settings: Settings = {
   pauseOnHover: true,
 };
 
-const ProductOverview: React.FC<Props> = ({ product }): JSX.Element => {
+const ProductOverview: React.FC<ProductProps> = ({ product }): JSX.Element => {
   const generatePrice = (p: Product): JSX.Element => {
     if (p.promotionPercent && p.promotionPrice) {
       return (
@@ -40,10 +37,7 @@ const ProductOverview: React.FC<Props> = ({ product }): JSX.Element => {
           <Slider {...settings}>
             {product.images.map((img) => (
               <div className="h-96 object-cover" key={img}>
-                <div
-                  className="bg-center bg-contain bg-no-repeat rounded-md h-96 object-cover"
-                  style={{ backgroundImage: `url(${img})` }}
-                ></div>
+                <div className="bg-center bg-contain bg-no-repeat rounded-md h-96 object-cover" style={{ backgroundImage: `url(${img})` }}></div>
               </div>
             ))}
           </Slider>

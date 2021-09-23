@@ -2,8 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 type SliceState = { isLoading: boolean };
 
-// First approach: define the initial state using that type
-
 const initialLoadingState: SliceState = { isLoading: true };
 
 const loadingSlice = createSlice({

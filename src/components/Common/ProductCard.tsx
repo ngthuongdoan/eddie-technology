@@ -1,14 +1,10 @@
 import React from 'react';
-import Product from '../../model/Product';
+import ClassNameProps from '../../model/ClassNameProps';
+import Product, { ProductProps } from '../../model/Product';
 import { toCurrency } from '../../utils';
 import Card from '../UI/Card';
 
-interface Props {
-  product: Product;
-  className: string;
-}
-
-const ProductCard: React.FC<Props> = ({ product, className }): JSX.Element => {
+const ProductCard: React.FC<ProductProps & ClassNameProps> = ({ product, className }): JSX.Element => {
   const generatePrice = (p: Product): JSX.Element => {
     if (p.promotionPercent && p.promotionPrice) {
       // Have Promotion Price

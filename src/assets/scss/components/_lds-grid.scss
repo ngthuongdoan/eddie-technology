@@ -1,0 +1,54 @@
+@layer components {
+  .lds-grid {
+    @apply inline-block relative w-20 h-20;
+    div {
+      @apply absolute w-4 h-4 rounded-full bg-white;
+      animation: lds-grid 1.2s linear infinite;
+      &:nth-child(1) {
+        @apply top-2 left-2;
+        animation-delay: 0s;
+      }
+      &:nth-child(2) {
+        @apply top-2 left-8;
+        animation-delay: -0.4s;
+      }
+      &:nth-child(3) {
+        @apply top-2 left-14;
+        animation-delay: -0.8s;
+      }
+      &:nth-child(4) {
+        @apply top-8 left-2;
+        animation-delay: -0.4s;
+      }
+      &:nth-child(5) {
+        @apply top-8 left-8;
+        animation-delay: -0.8s;
+      }
+      &:nth-child(6) {
+        @apply top-8 left-14;
+        animation-delay: -1.2s;
+      }
+      &:nth-child(7) {
+        @apply top-14 left-2;
+        animation-delay: -0.8s;
+      }
+      &:nth-child(8) {
+        @apply top-14 left-8;
+        animation-delay: -1.2s;
+      }
+      &:nth-child(9) {
+        @apply top-14 left-14;
+        animation-delay: -1.6s;
+      }
+    }
+  }
+  @keyframes lds-grid {
+    0%,
+    100% {
+      @apply opacity-100;
+    }
+    50% {
+      @apply opacity-50;
+    }
+  }
+}

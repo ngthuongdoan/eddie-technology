@@ -1,45 +1,31 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
+import Loading from '../../../components/UI/LoadingOverlay';
+import useFetch from '../../../hooks/use-fetch';
 import Product from '../../../model/Product';
 import { getProduct } from '../../../services/product.service';
-import { RootState, useAppDispatch } from '../../../store';
-import { loadingActions } from '../../../store/modules/loading';
+import { RootState } from '../../../store';
 import ProductDescription from './ProductDescription';
 import ProductOverview from './ProductOverview';
 import ProductSpecification from './ProductSpecification';
 
 const ProductDetail: React.FC = (props): JSX.Element => {
   const isLoading = useSelector<RootState>((state) => state.loading.isLoading);
-  const dispatch = useAppDispatch();
 
   const params: { id: string } = useParams();
-  const [product, setProduct] = useState<Product>();
-  const history = useHistory();
 
-  const fetchProduct = useCallback(async () => {
-    dispatch(loadingActions.loading());
-    const response = await getProduct(params.id);
-    if (response) {
-      setProduct(response as Product);
-      dispatch(loadingActions.loaded());
-    } else {
-      history.replace('/');
-    }
-  }, [params, history, dispatch]);
-
-  useEffect(() => {
-    fetchProduct();
-  }, [fetchProduct]);
+  const { data: product } = useFetch<Product>(useCallback(() => getProduct(params.id), [params]));
 
   return (
     <>
+      {isLoading && <Loading></Loading>}
       {!isLoading && product && (
         <div className="bg-white mx-14 my-5 p-10 rounded-lg shadow-lg">
-          <ProductOverview product={product} />
+          <ProductOverview product={product as Product} />
           <div className="flex items-start justify-start gap-10">
-            <ProductDescription className="flex-grow" product={product}></ProductDescription>
-            <ProductSpecification className="" product={product}></ProductSpecification>
+            <ProductDescription product={product as Product}></ProductDescription>
+            <ProductSpecification product={product as Product}></ProductSpecification>
           </div>
         </div>
       )}

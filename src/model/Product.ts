@@ -18,5 +18,4 @@ export default Product;
 
 export interface ProductProps {
   product: Product;
-  className: string;
 }

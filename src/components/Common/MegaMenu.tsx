@@ -2,15 +2,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import Category from '../../model/Category';
+import ClassNameProps from '../../model/ClassNameProps';
 import { getAllCategory } from '../../services/category.service';
 
-interface Props {
-  className: string;
-}
+interface Props {}
 
 type CategoryWithToggle = Category & { isShow: boolean };
 
-const MegaMenu: React.FC<Props> = (props): JSX.Element => {
+const MegaMenu: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
   const [categories, setCategories] = useState<CategoryWithToggle[]>([]);
 
   // Init category data
