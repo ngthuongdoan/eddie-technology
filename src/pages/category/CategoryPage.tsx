@@ -26,10 +26,12 @@ const CategoryPage: React.FC<Props> = (props): JSX.Element => {
       {isLoading && <Loading></Loading>}
       {!isLoading && (
         <div className="w-full min-h-screen py-10 bg-white">
-          <FilterContainer categoryId={categoryId} className="px-10 mb-10"></FilterContainer>
-          <hr className="w-full bg-background h-5" />
           {products && (products as Product[]).length !== 0 ? (
-            <ProductList className="" products={products as Product[]}></ProductList>
+            <>
+              <FilterContainer categoryId={categoryId} className="px-10 mb-10"></FilterContainer>
+              <hr className="w-full bg-background h-5" />
+              <ProductList className="" products={products as Product[]}></ProductList>
+            </>
           ) : (
             <NoValue>Không có sản phẩm</NoValue>
           )}
