@@ -20,7 +20,7 @@ const CategoryPage: React.FC<Props> = (props): JSX.Element => {
   const { id: categoryId } = state;
   const query = useQuery();
   const brand = query.get('brand');
-  const { data: products } = useFetch<Product>(useCallback(() => getAllProductsWithCategory(categoryId, { brand }), [categoryId, brand]));
+  const { data: products } = useFetch<Product[]>(useCallback(() => getAllProductsWithCategory(categoryId, { brand }), [categoryId, brand]));
   return (
     <>
       {isLoading && <Loading></Loading>}
