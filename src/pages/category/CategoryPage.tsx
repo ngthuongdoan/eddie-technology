@@ -7,9 +7,9 @@ import useFetch from '../../hooks/use-fetch';
 import { useQuery } from '../../hooks/use-query';
 import Product from '../../model/Product';
 import { getAllProductsWithCategory } from '../../services/product.service';
-import { RootState } from '../../store';
 import ProductList from './ProductList';
 import FilterContainer from './FilterContainer';
+import { RootState } from '../../model/ReduxType';
 
 interface Props {}
 
