@@ -1,4 +1,5 @@
 build/*
+mocks/*
 public/*
 docs/*
 templates/*
