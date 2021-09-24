@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useAppDispatch } from '../store';
 import { loadingActions } from '../store/modules/loading';
+import { useAppDispatch } from './use-app-dispatch';
 
 function useFetch<T>(fn: () => Promise<T>) {
   const [data, setData] = useState<T>();

@@ -1,14 +1,12 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
+import thunk from 'redux-thunk';
 import loadingReducer from './modules/loading';
+import cachedReducer from './modules/cachedData';
 
 const store = configureStore({
   reducer: combineReducers({
     loading: loadingReducer,
+    cached: cachedReducer,
   }),
 });
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-export const useAppDispatch = () => useDispatch<AppDispatch>(); // Ex
 export default store;

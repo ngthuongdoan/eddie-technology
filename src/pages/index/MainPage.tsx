@@ -1,13 +1,8 @@
-/* eslint-disable global-require */
-/* eslint-disable import/no-dynamic-require */
 import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { useSelector } from 'react-redux';
 import Card from '../../components/UI/Card';
 import MultipleItemsCarousel from './Carousel';
 import MegaMenu from '../../components/Common/MegaMenu';
-import { RootState } from '../../store';
-import Loading from '../../components/UI/LoadingOverlay';
 import ProductSection from './ProductSection';
 
 const MainPage: React.FC = () => {
