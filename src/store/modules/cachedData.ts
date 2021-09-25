@@ -4,15 +4,16 @@ import Product from '../../model/Product';
 
 export type CategoryWithToggle = Category & { isShow: boolean };
 
-type SliceState = { category: CategoryWithToggle[]; promoteProducts: Product[] };
+type SliceState = { category: CategoryWithToggle[]; rawCategory: CategoryWithToggle[]; promoteProducts: Product[] };
 
-const initialCacheState: SliceState = { category: [], promoteProducts: [] };
+const initialCachedState: SliceState = { category: [], rawCategory: [], promoteProducts: [] };
 
-const cacheSlice = createSlice({
+const cachedSlice = createSlice({
   name: 'cached',
-  initialState: initialCacheState,
+  initialState: initialCachedState,
   reducers: {
     setCategory(state, actions) {
+      state.rawCategory = actions.payload.category;
       state.category = actions.payload.category;
     },
     setShowSubCategory(state, actions) {
@@ -27,12 +28,15 @@ const cacheSlice = createSlice({
         throw new Error('Not find sub category');
       }
     },
+    resetCategory(state) {
+      state.category = [...state.rawCategory];
+    },
     setPromoteProduct(state, actions) {
       state.promoteProducts = actions.payload.products;
     },
   },
 });
 
-export const cacheActions = cacheSlice.actions;
+export const cachedActions = cachedSlice.actions;
 
-export default cacheSlice.reducer;
+export default cachedSlice.reducer;

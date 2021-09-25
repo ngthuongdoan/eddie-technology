@@ -1,7 +1,7 @@
 import { AppDispatch } from '../../model/ReduxType';
 import { getAllCategory } from '../../services/category.service';
 import { getAllProducts } from '../../services/product.service';
-import { cacheActions } from '../modules/cachedData';
+import { cachedActions } from '../modules/cachedData';
 
 export const asyncData = () => {
   return async (dispatch: AppDispatch) => {
@@ -14,8 +14,8 @@ export const asyncData = () => {
           isShow: false,
         };
       });
-      dispatch(cacheActions.setCategory({ category: categoriesWithToggle }));
-      dispatch(cacheActions.setPromoteProduct({ products: promoteProducts }));
+      dispatch(cachedActions.setCategory({ category: categoriesWithToggle }));
+      dispatch(cachedActions.setPromoteProduct({ products: promoteProducts }));
     } catch (e) {
       throw new Error('Server Error');
     }

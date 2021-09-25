@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import Category from '../../model/Category';
 import ClassNameProps from '../../model/ClassNameProps';
 import { RootState } from '../../model/ReduxType';
-import { cacheActions, CategoryWithToggle } from '../../store/modules/cachedData';
+import { cachedActions, CategoryWithToggle } from '../../store/modules/cachedData';
 
 interface Props {}
 
@@ -14,14 +14,14 @@ const MegaMenu: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
   const dispatch = useDispatch();
   const closeSubmenu = useCallback(
     (id: string) => {
-      dispatch(cacheActions.setShowSubCategory({ id, isShow: false }));
+      dispatch(cachedActions.setShowSubCategory({ id, isShow: false }));
     },
     [dispatch]
   );
 
   const openSubmenu = useCallback(
     (id: string) => {
-      dispatch(cacheActions.setShowSubCategory({ id, isShow: true }));
+      dispatch(cachedActions.setShowSubCategory({ id, isShow: true }));
     },
     [dispatch]
   );
@@ -34,6 +34,10 @@ const MegaMenu: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
       history.push(`/category/${category.path}`, { id: category.id });
     }
   };
+
+  history.listen(() => {
+    dispatch(cachedActions.resetCategory());
+  });
 
   return (
     <div className={`${props.className} absolute mega-menu`}>
