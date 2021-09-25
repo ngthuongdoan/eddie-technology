@@ -1,11 +1,16 @@
 import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { useSelector } from 'react-redux';
 import Card from '../../components/UI/Card';
 import MultipleItemsCarousel from './Carousel';
 import MegaMenu from '../../components/Common/MegaMenu';
-import ProductSection from './ProductSection';
+import ProductList from '../../components/Common/ProductList';
+import { RootState } from '../../model/ReduxType';
+import Product from '../../model/Product';
 
 const MainPage: React.FC = () => {
+  const promoteProducts = useSelector<RootState>((state) => state.cached.promoteProducts) as Product[];
+
   return (
     <>
       <section>
@@ -25,7 +30,7 @@ const MainPage: React.FC = () => {
           <MultipleItemsCarousel></MultipleItemsCarousel>
         </Card>
       </section>
-      <ProductSection></ProductSection>
+      <ProductList className="" products={promoteProducts as Product[]}></ProductList>
     </>
   );
 };
