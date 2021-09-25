@@ -19,7 +19,7 @@ const ProductSection: React.FC<Props> = (props): JSX.Element => {
   }, [promoteProducts, perPage]);
 
   const onPageChange = (current: number, pageSize: number) => {
-    setProducts([...promoteProducts.slice(current * pageSize, current * pageSize + perPage)]);
+    setProducts([...promoteProducts.slice((current - 1) * pageSize, (current - 1) * pageSize + perPage)]);
   };
 
   return (
@@ -34,7 +34,13 @@ const ProductSection: React.FC<Props> = (props): JSX.Element => {
             </Link>
           ))}
       </div>
-      <Pagination className="w-full text-center" pageSize={perPage} total={promoteProducts?.length} onChange={onPageChange}></Pagination>
+      <Pagination
+        className="w-full text-center"
+        defaultCurrent={1}
+        pageSize={perPage}
+        total={promoteProducts?.length}
+        onChange={onPageChange}
+      ></Pagination>
     </section>
   );
 };
