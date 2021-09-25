@@ -7,7 +7,7 @@ import useFetch from '../../hooks/use-fetch';
 import { useQuery } from '../../hooks/use-query';
 import Product from '../../model/Product';
 import { getAllProductsWithCategory } from '../../services/product.service';
-import ProductList from './ProductList';
+import ProductList from '../../components/Common/ProductList';
 import FilterContainer from './FilterContainer';
 import { RootState } from '../../model/ReduxType';
 
