@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Category from '../../model/Category';
 import Product from '../../model/Product';
 
@@ -12,11 +12,11 @@ const cachedSlice = createSlice({
   name: 'cached',
   initialState: initialCachedState,
   reducers: {
-    setCategory(state, actions) {
+    setCategory(state, actions: PayloadAction<{ category: CategoryWithToggle[] }>) {
       state.rawCategory = actions.payload.category;
       state.category = actions.payload.category;
     },
-    setShowSubCategory(state, actions) {
+    setShowSubCategory(state, actions: PayloadAction<{ id: string; isShow: boolean }>) {
       const position = state.category.findIndex((c) => c.id === actions.payload.id);
       if (position !== -1) {
         const newCategory = [...state.category];
@@ -31,7 +31,7 @@ const cachedSlice = createSlice({
     resetCategory(state) {
       state.category = [...state.rawCategory];
     },
-    setPromoteProduct(state, actions) {
+    setPromoteProduct(state, actions: PayloadAction<{ products: Product[] }>) {
       state.promoteProducts = actions.payload.products;
     },
   },

@@ -1,12 +1,15 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import thunk from 'redux-thunk';
+import { configureStore } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
 import loadingReducer from './modules/loading';
 import cachedReducer from './modules/cachedData';
 
+const reducer = {
+  loading: loadingReducer,
+  cached: cachedReducer,
+};
+
 const store = configureStore({
-  reducer: combineReducers({
-    loading: loadingReducer,
-    cached: cachedReducer,
-  }),
+  reducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 export default store;
