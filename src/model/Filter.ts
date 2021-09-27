@@ -1,5 +1,10 @@
-interface Filter {
-  brand?: string | null;
-  color?: string | null;
+export interface BaseFilters {
+  brands?: string[];
+  colors?: string[];
 }
-export default Filter;
+
+export type PhoneFilters = {
+  os: string[];
+} & BaseFilters;
+
+export type Filters = PhoneFilters | BaseFilters;
