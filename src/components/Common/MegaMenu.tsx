@@ -48,15 +48,15 @@ const MegaMenu: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
             categories.map((category) => (
               <div className="px-3" key={category.id} onMouseLeave={() => closeSubmenu(category.id)}>
                 <li onMouseEnter={() => openSubmenu(category.id)} onFocus={() => {}}>
-                  <div onClick={() => to(category)} aria-hidden="true">
+                  <a href="javascript:void(0)" onClick={() => to(category)} aria-hidden="true">
                     {category.icon && <FontAwesomeIcon className="justify-self-center w-4 mr-2" icon={category.icon} size="lg" />}
                     <span>{category.label}</span>
-                  </div>
+                  </a>
                   {category.brands.length !== 0 && (
                     <ul className={`sub-menu ${!category.isShow && 'hidden'}`}>
                       {category.brands.map((brand, index) => (
                         <li onClick={() => to(category, brand)} key={index} aria-hidden="true">
-                          {brand}
+                          <a href="javascript:void(0)">{brand}</a>
                         </li>
                       ))}
                     </ul>
