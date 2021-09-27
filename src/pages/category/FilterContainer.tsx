@@ -1,38 +1,33 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import Tag from '../../components/UI/Tag';
+import React from 'react';
+import { PHONE_FILTERS } from '../../common/filters';
 import ClassNameProps from '../../model/ClassNameProps';
-import { getAllCategoryBrands, getAllCategoryColors } from '../../services/category.service';
 import TheFilter from './TheFilter';
 
 interface Props {
-  categoryId: string;
+  onFilterChange: (key: string, value: string) => void;
 }
 
 const FilterContainer: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
-  const id = props.categoryId;
-  const [criterias, setCriterias] = useState<{ brands: string[]; colors: string[] }>();
-
-  const fetchData = useCallback(async () => {
-    const brandDocs = await getAllCategoryBrands(id);
-    const colorDocs = await getAllCategoryColors(id);
-    setCriterias({
-      brands: brandDocs,
-      colors: colorDocs,
-    });
-  }, [id]);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-
+  const criterias = PHONE_FILTERS;
   return (
     <div className={`${props.className}`}>
       <h1 className="font-bold text-black text-xl mb-5">Bộ lọc</h1>
       <div>
         {criterias && (
           <ul className="flex flex-col gap-y-2">
-            <TheFilter data={criterias.brands} label="Thương hiệu"></TheFilter>
-            <TheFilter data={criterias.colors} label="Màu sắc"></TheFilter>
+            <TheFilter
+              data={criterias.brands!}
+              onFilterChange={(value) => props.onFilterChange('brand', value)}
+              label="Thương hiệu"
+              key="brand"
+            ></TheFilter>
+            <TheFilter
+              data={criterias.colors!}
+              onFilterChange={(value) => props.onFilterChange('color', value)}
+              label="Màu sắc"
+              key="color"
+            ></TheFilter>
+            <TheFilter data={criterias.os!} onFilterChange={(value) => props.onFilterChange('os', value)} label="Hệ điều hành" key="os"></TheFilter>
           </ul>
         )}
       </div>

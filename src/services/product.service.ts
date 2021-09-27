@@ -28,6 +28,9 @@ export const getAllProducts = async (): Promise<Product[]> => {
 };
 
 const generateQuery = (filter: Record<string, string[]>) => {
+  console.log('🚀 -----------------------------------------------------------------------');
+  console.log('🚀 ~ file: product.service.ts ~ line 31 ~ generateQuery ~ filter', filter);
+  console.log('🚀 -----------------------------------------------------------------------');
   const result: QueryConstraint[] = [];
   for (const key in filter) {
     if (Object.prototype.hasOwnProperty.call(filter, key)) {
