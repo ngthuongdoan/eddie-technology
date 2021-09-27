@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import Category from '../../model/Category';
-import Product from '../../model/Product';
+import Category from '../../../model/Category';
+import Product from '../../../model/Product';
 
 export type CategoryWithToggle = Category & { isShow: boolean };
 

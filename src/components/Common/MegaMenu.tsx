@@ -2,16 +2,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks/use-app-dispatch';
 import Category from '../../model/Category';
 import ClassNameProps from '../../model/ClassNameProps';
 import { RootState } from '../../model/ReduxType';
-import { cachedActions, CategoryWithToggle } from '../../store/modules/cachedData';
+import { cachedActions, CategoryWithToggle } from '../../store/modules/cached/reducer';
 
 interface Props {}
 
 const MegaMenu: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
   const categories = useSelector<RootState>((state) => state.cached.category) as CategoryWithToggle[];
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const closeSubmenu = useCallback(
     (id: string) => {
       dispatch(cachedActions.setShowSubCategory({ id, isShow: false }));

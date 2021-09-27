@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import loadingReducer from './modules/loading';
-import cachedReducer from './modules/cachedData';
+import loadingReducer from './modules/loading/reducer';
+import cachedReducer from './modules/cached/reducer';
 
 const reducer = {
   loading: loadingReducer,
