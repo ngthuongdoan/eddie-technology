@@ -23,7 +23,7 @@ const DefaultLayout: React.FC = (): JSX.Element => {
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route exact path="/product/:id" component={ProductDetailPage} />
-            <Route exact path="/category/:slug" component={CategoryPage} />
+            <Route exact path="/category/:categoryId" component={CategoryPage} />
             <Route path="/*">
               <Redirect to="/404"></Redirect>
             </Route>

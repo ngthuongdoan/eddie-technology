@@ -27,15 +27,16 @@ export const getAllProducts = async (): Promise<Product[]> => {
   return products;
 };
 
-const generateQuery = (filter: Record<string, string[]>) => {
-  console.log('🚀 -----------------------------------------------------------------------');
-  console.log('🚀 ~ file: product.service.ts ~ line 31 ~ generateQuery ~ filter', filter);
-  console.log('🚀 -----------------------------------------------------------------------');
+const generateQuery = (filter: Record<string, string>) => {
+  const refinedFilter = removeNullAndUndefined(filter);
+  console.log('🚀 -------------------------------------------------------------------------------------');
+  console.log('🚀 ~ file: product.service.ts ~ line 32 ~ generateQuery ~ refinedFilter', refinedFilter);
+  console.log('🚀 -------------------------------------------------------------------------------------');
   const result: QueryConstraint[] = [];
-  for (const key in filter) {
-    if (Object.prototype.hasOwnProperty.call(filter, key)) {
-      if (filter[key].length !== 0) {
-        result.push(where(key, 'in', filter[key]));
+  for (const key in refinedFilter) {
+    if (Object.prototype.hasOwnProperty.call(refinedFilter, key)) {
+      if (refinedFilter[key].length !== 0) {
+        result.push(where(key, '==', refinedFilter[key]));
       }
     }
   }
@@ -43,9 +44,8 @@ const generateQuery = (filter: Record<string, string[]>) => {
 };
 
 export const getAllProductsWithCategory = async (categoryId: string, filter: Filters): Promise<Product[]> => {
-  const refinedFilter = generateQuery(filter as Record<string, string[]>);
+  const refinedFilter = generateQuery(filter as Record<string, string>);
   const q = query(productStore, where('category', '==', categoryId), ...refinedFilter);
-  // const q = query(productStore, where('category', '==', categoryId));
 
   const querySnapshot = await getDocs(q);
   const products: Product[] = [];

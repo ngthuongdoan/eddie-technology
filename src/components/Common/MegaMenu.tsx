@@ -30,9 +30,9 @@ const MegaMenu: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
   const history = useHistory();
   const to = (category: Category, brand: string = '') => {
     if (brand !== '') {
-      history.push(`/category/${category.path}?brand=${brand}`, { id: category.id });
+      history.push(`/category/${category.id}?brands=${brand}`);
     } else {
-      history.push(`/category/${category.path}`, { id: category.id });
+      history.push(`/category/${category.id}`);
     }
   };
 
@@ -57,7 +57,7 @@ const MegaMenu: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
                     <ul className={`sub-menu ${!category.isShow && 'hidden'}`}>
                       {category.brands.map((brand, index) => (
                         <li onClick={() => to(category, brand)} key={index} aria-hidden="true">
-                          <a href="javascript:void(0)">{brand}</a>
+                          <a>{brand}</a>
                         </li>
                       ))}
                     </ul>

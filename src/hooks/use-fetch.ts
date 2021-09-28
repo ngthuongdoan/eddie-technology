@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { loadingActions } from '../store/modules/loading';
+import { loadingActions } from '../store/modules/loading/reducer';
 import { useAppDispatch } from './use-app-dispatch';
 
 function useFetch<T>(fn: () => Promise<T>) {

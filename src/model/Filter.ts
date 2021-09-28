@@ -1,10 +1,10 @@
-export interface BaseFilters {
-  brands?: string[];
-  colors?: string[];
-}
+export type BaseFilters = {
+  brands?: string;
+  colors?: string;
+};
 
 export type PhoneFilters = {
-  os: string[];
+  os?: string;
 } & BaseFilters;
 
 export type Filters = PhoneFilters | BaseFilters;

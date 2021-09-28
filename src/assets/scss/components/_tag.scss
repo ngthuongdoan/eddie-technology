@@ -1,5 +1,8 @@
 @layer components {
   .tag {
     @apply block py-1 px-3 rounded-md text-sm border border-gray-200;
+    &--active {
+      @apply bg-blue-300;
+    }
   }
 }

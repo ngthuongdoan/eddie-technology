@@ -74,6 +74,7 @@
     "react/no-array-index-key": "off",
     "react/self-closing-comp": "off",
     "react/jsx-closing-tag-location": "off",
-    "react/no-danger": "off"
+    "react/no-danger": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   }
 }
