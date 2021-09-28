@@ -3,6 +3,9 @@ import Slider, { Settings } from 'react-slick';
 import Tag from '@components/UI/Tag/Tag';
 import Product, { ProductProps } from '@model/Product';
 import { toCurrency } from '@utils/index';
+import Price from '@components/Common/Price/Price';
+import { useAppDispatch } from '@hooks/use-app-dispatch';
+import { cartActions } from '@store/modules/cart/reducer';
 
 const settings: Settings = {
   dots: true,
@@ -15,21 +18,10 @@ const settings: Settings = {
 };
 
 const ProductOverview: React.FC<ProductProps> = ({ product }): JSX.Element => {
-  const generatePrice = (p: Product): JSX.Element => {
-    if (p.promotionPercent && p.promotionPrice) {
-      return (
-        <>
-          <p className="line-through mb-2 font-thin">{toCurrency(p.promotionPrice)}</p>
-          <p className="flex items-center ">
-            <span>{toCurrency(p.promotionPrice)}</span>
-            <Tag className="ml-3 border-2 border-red-500 bg-red-400 text-white font-bold">-{p.promotionPercent}%</Tag>
-          </p>
-        </>
-      );
-    }
-    return <p>{toCurrency(p.listedPrice)}</p>;
+  const dispatch = useAppDispatch();
+  const addToCart = () => {
+    dispatch(cartActions.addProduct(product));
   };
-
   return (
     <>
       <div className="flex items-start justify-start gap-9 mb-20">
@@ -49,7 +41,15 @@ const ProductOverview: React.FC<ProductProps> = ({ product }): JSX.Element => {
               Thương hiệu: <span className="text-primary ml-1">{product.brand}</span>
             </span>
           </p>
-          <div className="italic font-bold text-primary text-2xl">{generatePrice(product)}</div>
+          <Price className="italic font-bold text-primary text-2xl" product={product}></Price>
+          <button
+            className="font-bold text-white text-base px-3 py-2 rounded bg-red-700"
+            type="button"
+            onClick={() => addToCart()}
+            aria-hidden="true"
+          >
+            Thêm vào giỏ hàng
+          </button>
         </div>
       </div>
     </>

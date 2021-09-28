@@ -5,7 +5,7 @@ interface Feature {
 
   title: string;
 
-  path?: string;
+  path: string;
 }
 
 export default Feature;
