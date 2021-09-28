@@ -4,13 +4,13 @@ import { useParams } from 'react-router-dom';
 import queryString from 'query-string';
 import NoValue from '@components/Common/NoValue/NoValue';
 import Loading from '@components/UI/LoadingOverlay/LoadingOverlay';
-import useFetch from '@app/hooks/use-fetch';
-import { useQuery } from '@app/hooks/use-query';
-import Product from '@app/model/Product';
-import { getAllProductsWithCategory } from '@app/services/product.service';
+import useFetch from '@hooks/use-fetch';
+import { useQuery } from '@hooks/use-query';
+import Product from '@model/Product';
+import { getAllProductsWithCategory } from '@services/product.service';
 import ProductList from '@components/Common/ProductList/ProductList';
-import { RootState } from '@app/model/ReduxType';
-import { PhoneFilters } from '@app/model/Filter';
+import { RootState } from '@model/ReduxType';
+import { PhoneFilters } from '@model/Filter';
 import FilterContainer from './FilterContainer';
 
 interface Props {}

@@ -1,6 +1,6 @@
 import React from 'react';
 import DOMPurify from 'dompurify';
-import { ProductProps } from '@app/model/Product';
+import { ProductProps } from '@model/Product';
 
 const ProductDescription: React.FC<ProductProps> = ({ product }): JSX.Element => {
   return (

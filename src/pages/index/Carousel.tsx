@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider, { Settings } from 'react-slick';
-import BRANDS from '@app/common/brands';
+import BRANDS from '@common/brands';
 import Card from '@components/UI/Card/Card';
 
 const settings: Settings = {

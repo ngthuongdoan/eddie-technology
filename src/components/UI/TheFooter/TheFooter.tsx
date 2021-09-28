@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import footerMenu from '@app/common/footerMenu';
+import footerMenu from '@common/footerMenu';
 
 const TheFooter: React.FC = (): JSX.Element => {
   const menuGenerated = useMemo<JSX.Element[]>(() => {

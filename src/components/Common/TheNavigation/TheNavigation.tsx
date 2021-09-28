@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
-import Feature from '@app/model/Feature';
+import Feature from '@model/Feature';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   items: Array<Feature | string>;
