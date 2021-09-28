@@ -1,8 +1,8 @@
-import React, { useMemo, useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import queryString from 'query-string';
 import { useHistory } from 'react-router-dom';
-import { PHONE_FILTERS } from '../../common/filters';
-import ClassNameProps from '../../model/ClassNameProps';
+import { PHONE_FILTERS } from '@app/common/filters';
+import ClassNameProps from '@app/model/ClassNameProps';
 import TheFilter from './TheFilter';
 
 interface Props {}

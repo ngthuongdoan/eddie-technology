@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from 'react';
 
-import { PhoneFilters } from '../model/Filter';
+import { PhoneFilters } from '@app/model/Filter';
 
 export enum FilterType {
   BRANDS = 'BRANDS',

@@ -1,5 +1,5 @@
 import React from 'react';
-import ClassNameProps from '../../model/ClassNameProps';
+import ClassNameProps from '@app/model/ClassNameProps';
 
 interface Props {}
 

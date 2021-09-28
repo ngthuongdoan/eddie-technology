@@ -1,12 +1,12 @@
 import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { useSelector } from 'react-redux';
-import Card from '../../components/UI/Card';
+import Card from '@components/UI/Card/Card';
+import MegaMenu from '@components/Common/MegaMenu/MegaMenu';
+import ProductList from '@components/Common/ProductList/ProductList';
+import { RootState } from '@app/model/ReduxType';
+import Product from '@app/model/Product';
 import MultipleItemsCarousel from './Carousel';
-import MegaMenu from '../../components/Common/MegaMenu';
-import ProductList from '../../components/Common/ProductList';
-import { RootState } from '../../model/ReduxType';
-import Product from '../../model/Product';
 
 const MainPage: React.FC = () => {
   const promoteProducts = useSelector<RootState>((state) => state.cached.promoteProducts) as Product[];

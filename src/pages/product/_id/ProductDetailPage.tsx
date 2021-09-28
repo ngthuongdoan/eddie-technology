@@ -1,11 +1,11 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
-import Loading from '../../../components/UI/LoadingOverlay';
-import useFetch from '../../../hooks/use-fetch';
-import Product from '../../../model/Product';
-import { RootState } from '../../../model/ReduxType';
-import { getProduct } from '../../../services/product.service';
+import { useParams } from 'react-router-dom';
+import Loading from '@components/UI/LoadingOverlay/LoadingOverlay';
+import useFetch from '@app/hooks/use-fetch';
+import Product from '@app/model/Product';
+import { RootState } from '@app/model/ReduxType';
+import { getProduct } from '@app/services/product.service';
 import ProductDescription from './ProductDescription';
 import ProductOverview from './ProductOverview';
 import ProductSpecification from './ProductSpecification';

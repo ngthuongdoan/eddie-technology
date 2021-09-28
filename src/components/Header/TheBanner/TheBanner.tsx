@@ -1,6 +1,6 @@
 import React from 'react';
-import features from '../../common/features';
-import TheNavigation from '../Common/TheNavigation';
+import features from '@app/common/features';
+import TheNavigation from '@components/Common/TheNavigation/TheNavigation';
 
 const TheBanner: React.FC = (props): JSX.Element => {
   return (
