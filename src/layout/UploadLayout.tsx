@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useHistory } from 'react-router-dom';
-import { storage } from '../plugins/firebase';
+import { storage } from '@app/plugins/firebase';
 
 const UploadLayout: React.FC = (): JSX.Element => {
   const [imageAsFile, setImageAsFile] = useState<File | string>('');

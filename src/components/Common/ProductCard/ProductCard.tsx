@@ -1,8 +1,8 @@
 import React from 'react';
-import ClassNameProps from '../../model/ClassNameProps';
-import Product, { ProductProps } from '../../model/Product';
-import { toCurrency } from '../../utils';
-import Card from '../UI/Card';
+import ClassNameProps from '@app/model/ClassNameProps';
+import Product, { ProductProps } from '@app/model/Product';
+import { toCurrency } from '@app/utils';
+import Card from '@components/UI/Card/Card';
 
 const ProductCard: React.FC<ProductProps & ClassNameProps> = ({ product, className }): JSX.Element => {
   const generatePrice = (p: Product): JSX.Element => {

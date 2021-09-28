@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Pagination from 'rc-pagination';
-import ProductCard from './ProductCard';
-import ClassNameProps from '../../model/ClassNameProps';
-import Product from '../../model/Product';
+import ClassNameProps from '@app/model/ClassNameProps';
+import Product from '@app/model/Product';
+import ProductCard from '@components/Common/ProductCard/ProductCard';
 
 interface Props {
   products: Product[];

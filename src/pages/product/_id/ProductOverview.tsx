@@ -1,8 +1,8 @@
 import React from 'react';
 import Slider, { Settings } from 'react-slick';
-import Tag from '../../../components/UI/Tag';
-import Product, { ProductProps } from '../../../model/Product';
-import { toCurrency } from '../../../utils';
+import Tag from '@components/UI/Tag/Tag';
+import Product, { ProductProps } from '@app/model/Product';
+import { toCurrency } from '@app/utils';
 
 const settings: Settings = {
   dots: true,

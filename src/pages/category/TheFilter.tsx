@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Tag from '../../components/UI/Tag';
+import Tag from '@components/UI/Tag/Tag';
 
 interface Props {
   data: string[];
