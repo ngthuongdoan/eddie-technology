@@ -19,3 +19,5 @@ export default Product;
 export interface ProductProps {
   product: Product;
 }
+
+export type CartProduct = { amount: number } & Product;
