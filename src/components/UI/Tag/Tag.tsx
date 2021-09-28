@@ -1,5 +1,5 @@
 import React from 'react';
-import ClassNameProps from '@app/model/ClassNameProps';
+import ClassNameProps from '@model/ClassNameProps';
 
 interface Props {
   isClicked?: boolean;

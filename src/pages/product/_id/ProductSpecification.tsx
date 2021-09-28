@@ -1,6 +1,6 @@
 import React from 'react';
-import { ProductProps } from '@app/model/Product';
-import Specifications from '@app/model/Specifications';
+import { ProductProps } from '@model/Product';
+import Specifications from '@model/Specifications';
 
 const ProductSpecification: React.FC<ProductProps> = ({ product }): JSX.Element => {
   return (

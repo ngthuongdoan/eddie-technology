@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import ClassNameProps from '@app/model/ClassNameProps';
+import ClassNameProps from '@model/ClassNameProps';
 
 type OverlayProps = {
   close?: () => void;

@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import Card from '@components/UI/Card/Card';
 import MegaMenu from '@components/Common/MegaMenu/MegaMenu';
 import ProductList from '@components/Common/ProductList/ProductList';
-import { RootState } from '@app/model/ReduxType';
-import Product from '@app/model/Product';
+import { RootState } from '@model/ReduxType';
+import Product from '@model/Product';
 import MultipleItemsCarousel from './Carousel';
 
 const MainPage: React.FC = () => {

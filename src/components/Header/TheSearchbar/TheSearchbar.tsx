@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-import navigations from '@app/common/navigations';
-import suggestions from '@app/common/suggestions';
-import logo from '@app/assets/img/logo.svg';
+import navigations from '@common/navigations';
+import suggestions from '@common/suggestions';
+import logo from '@assets/img/logo.svg';
 import TheNavigation from '@components/Common/TheNavigation/TheNavigation';
 
 const TheSearchbar: React.FC = (props): JSX.Element => {

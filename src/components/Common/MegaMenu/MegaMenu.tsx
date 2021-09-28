@@ -2,11 +2,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useAppDispatch } from '@app/hooks/use-app-dispatch';
-import Category from '@app/model/Category';
-import ClassNameProps from '@app/model/ClassNameProps';
-import { RootState } from '@app/model/ReduxType';
-import { cachedActions, CategoryWithToggle } from '@app/store/modules/cached/reducer';
+import { useAppDispatch } from '@hooks/use-app-dispatch';
+import Category from '@model/Category';
+import ClassNameProps from '@model/ClassNameProps';
+import { RootState } from '@model/ReduxType';
+import { cachedActions, CategoryWithToggle } from '@store/modules/cached/reducer';
 
 interface Props {}
 
