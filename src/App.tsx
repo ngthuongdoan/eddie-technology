@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { cartActions } from '@store/modules/cart/reducer';
 import AppRouter from './router/AppRouter';
 import store from './store';
 
@@ -62,6 +63,21 @@ const SEO = () => {
 };
 
 const App = () => {
+  const getTodosFromLocalStorage = () => {
+    try {
+      const persistedState = localStorage.getItem('cart');
+      if (persistedState) return JSON.parse(persistedState);
+    } catch (e) {
+      console.log(e);
+    }
+    return null;
+  };
+
+  const cart = getTodosFromLocalStorage();
+  if (cart) {
+    store.dispatch(cartActions.hydrate(cart));
+  }
+
   return (
     <>
       <SEO></SEO>

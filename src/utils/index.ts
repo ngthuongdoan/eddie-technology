@@ -1,4 +1,4 @@
-import React from 'react';
+import Product from '@model/Product';
 
 const toCurrency = (currency: number): string => {
   return Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(currency);
@@ -9,4 +9,10 @@ function removeNullAndUndefined<T>(obj: T): T {
     .reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {} as T);
 }
 
-export { toCurrency, removeNullAndUndefined };
+const getProductPrice = (product: Product) => {
+  if (product.promotionPrice) {
+    return product.promotionPrice;
+  }
+  return product.listedPrice;
+};
+export { toCurrency, removeNullAndUndefined, getProductPrice };
