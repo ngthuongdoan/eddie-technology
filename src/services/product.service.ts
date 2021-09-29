@@ -29,9 +29,6 @@ export const getAllProducts = async (): Promise<Product[]> => {
 
 const generateQuery = (filter: Record<string, string>) => {
   const refinedFilter = removeNullAndUndefined(filter);
-  console.log('🚀 -------------------------------------------------------------------------------------');
-  console.log('🚀 ~ file: product.service.ts ~ line 32 ~ generateQuery ~ refinedFilter', refinedFilter);
-  console.log('🚀 -------------------------------------------------------------------------------------');
   const result: QueryConstraint[] = [];
   for (const key in refinedFilter) {
     if (Object.prototype.hasOwnProperty.call(refinedFilter, key)) {

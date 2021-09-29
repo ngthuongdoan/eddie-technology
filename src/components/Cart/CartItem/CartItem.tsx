@@ -16,7 +16,7 @@ const CartItem: React.FC<Props> = ({ item }): JSX.Element => {
   };
 
   const removeItem = () => {
-    dispatch(cartActions.removeProduct({ id: item.id }));
+    dispatch(cartActions.removeProduct(item));
   };
   return (
     <Card className="flex items-center justify-start py-2 px-3">
