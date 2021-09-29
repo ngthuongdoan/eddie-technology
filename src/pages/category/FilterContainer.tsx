@@ -10,6 +10,9 @@ interface Props {}
 const FilterContainer: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
   const criterias = useMemo(() => PHONE_FILTERS, []);
   const [filters, setFilters] = useState({});
+  console.log('🚀 ----------------------------------------------------------');
+  console.log('🚀 ~ file: FilterContainer.tsx ~ line 13 ~ filters', filters);
+  console.log('🚀 ----------------------------------------------------------');
 
   const onFilterChange = (key: string, value: string) => {
     setFilters((pre) => ({ ...pre, [key]: value }));

@@ -30,7 +30,7 @@ const MainPage: React.FC = () => {
           <MultipleItemsCarousel></MultipleItemsCarousel>
         </Card>
       </section>
-      <ProductList className="" products={promoteProducts as Product[]}></ProductList>
+      <ProductList onPageChange={() => {}} currentPage={1} products={promoteProducts as Product[]}></ProductList>
     </>
   );
 };

@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Pagination from 'rc-pagination';
 import ClassNameProps from '@model/ClassNameProps';
 import Product from '@model/Product';
 import ProductCard from '@components/Common/ProductCard/ProductCard';
+import queryString from 'query-string';
 
 interface Props {
   products: Product[];
+  currentPage: number;
+  onPageChange: (current: number) => void;
 }
 
-const ProductList: React.FC<Props & ClassNameProps> = ({ products, className }): JSX.Element => {
+const ProductList: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
   const [filterProducts, setFilterProducts] = useState<Product[]>();
   const perPage = 10;
-
+  const { products, currentPage, className } = props;
   useEffect(() => {
-    setFilterProducts([...products.slice(0, perPage)]);
-  }, [products, perPage]);
+    setFilterProducts([...products.slice((currentPage - 1) * perPage, (currentPage - 1) * perPage + perPage)]);
+  }, [products, perPage, currentPage]);
 
   const onPageChange = (current: number, pageSize: number) => {
-    setFilterProducts([...products.slice((current - 1) * pageSize, (current - 1) * pageSize + perPage)]);
+    props.onPageChange(current);
   };
 
   return (
@@ -32,7 +35,13 @@ const ProductList: React.FC<Props & ClassNameProps> = ({ products, className }):
           ))}
       </div>
       {products?.length !== perPage && (
-        <Pagination className="w-full text-center mb-5" pageSize={perPage} total={products?.length} onChange={onPageChange}></Pagination>
+        <Pagination
+          className="w-full text-center mb-5"
+          current={currentPage}
+          pageSize={perPage}
+          total={products?.length}
+          onChange={onPageChange}
+        ></Pagination>
       )}
     </div>
   );

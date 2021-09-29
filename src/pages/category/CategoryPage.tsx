@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import queryString from 'query-string';
 import NoValue from '@components/Common/NoValue/NoValue';
 import Loading from '@components/UI/LoadingOverlay/LoadingOverlay';
@@ -20,11 +20,15 @@ const CategoryPage: React.FC<Props> = (props): JSX.Element => {
 
   const { categoryId } = useParams<{ categoryId: string }>();
   const query = useQuery();
-  const filters = useMemo(() => queryString.parse(query, { arrayFormat: 'comma' }), [query]);
-
+  const { brands, colors, os, page } = useMemo(() => queryString.parse(query, { arrayFormat: 'comma' }), [query]);
   const { data: products } = useFetch<Product[]>(
-    useCallback(() => getAllProductsWithCategory(categoryId, filters as PhoneFilters), [categoryId, filters])
+    useCallback(() => getAllProductsWithCategory(categoryId, { brands, colors, os } as PhoneFilters), [categoryId, brands, colors, os])
   );
+
+  const history = useHistory();
+  const onPageChange = (current: number) => {
+    history.push(`${history.location.pathname}?${queryString.stringify({ brands, colors, os, page: current })}`);
+  };
 
   return (
     <>
@@ -34,7 +38,7 @@ const CategoryPage: React.FC<Props> = (props): JSX.Element => {
           <FilterContainer className="px-10 mb-10"></FilterContainer>
           <hr className="w-full bg-background h-5" />
           {products && (products as Product[]).length !== 0 ? (
-            <ProductList className="" products={products as Product[]}></ProductList>
+            <ProductList onPageChange={onPageChange} currentPage={!page ? 1 : +page} products={products as Product[]}></ProductList>
           ) : (
             <NoValue>Không có sản phẩm</NoValue>
           )}
