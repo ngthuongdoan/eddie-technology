@@ -64,12 +64,9 @@ const SEO = () => {
 
 const App = () => {
   const getTodosFromLocalStorage = () => {
-    try {
-      const persistedState = localStorage.getItem('cart');
-      if (persistedState) return JSON.parse(persistedState);
-    } catch (e) {
-      console.log(e);
-    }
+    const persistedState = localStorage.getItem('cart');
+    if (persistedState) return JSON.parse(persistedState);
+
     return null;
   };
 
