@@ -1,8 +1,7 @@
 import React from 'react';
 import Slider, { Settings } from 'react-slick';
-import Tag from '@components/UI/Tag/Tag';
-import Product, { ProductProps } from '@model/Product';
-import { toCurrency } from '@utils/index';
+import { useAlert } from 'react-alert';
+import { ProductProps } from '@model/Product';
 import Price from '@components/Common/Price/Price';
 import { useAppDispatch } from '@hooks/use-app-dispatch';
 import { cartActions } from '@store/modules/cart/reducer';
@@ -19,8 +18,11 @@ const settings: Settings = {
 
 const ProductOverview: React.FC<ProductProps> = ({ product }): JSX.Element => {
   const dispatch = useAppDispatch();
+  const alert = useAlert();
+
   const addToCart = () => {
     dispatch(cartActions.addProduct(product));
+    alert.show(`Đã thêm ${product.name}`);
   };
   return (
     <>
