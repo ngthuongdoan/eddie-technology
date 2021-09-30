@@ -9,25 +9,25 @@ export const getAllCategory = async (): Promise<Category[]> => {
   const querySnapshot = await getDocs(categoryStore);
   const categories: Category[] = [];
   querySnapshot.forEach((category) => {
-    // doc.data() is never undefined for query doc snapshots
+    const data: Category = category.data() as Category;
     categories.push({
       id: category.id,
-      label: category.data().label,
-      brands: category.data().brands,
-      icon: category.data().icon,
-      path: category.data().path,
+      label: data.label,
+      brands: data.brands,
+      icon: data.icon,
+      path: data.path,
     });
   });
-  return categories;
+  return Promise.resolve(categories);
 };
 
 export const getAllCategoryBrands = async (id: string): Promise<string[]> => {
   const docRef = doc(db, 'category', id);
   const category = await getDoc(docRef);
   if (category.exists()) {
-    return [...category.data().brands];
+    return Promise.resolve([...category.data().brands]);
   }
-  return [];
+  return Promise.resolve([]);
 };
 
 export const getAllCategoryColors = async (id: string): Promise<string[]> => {
@@ -39,5 +39,5 @@ export const getAllCategoryColors = async (id: string): Promise<string[]> => {
     colors.push(...product.data().colors);
   });
 
-  return Array.from(new Set(colors));
+  return Promise.resolve(Array.from(new Set(colors)));
 };

@@ -1,25 +1,22 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { CartProduct } from '@model/Product';
 import { RootState } from '@model/ReduxType';
 import CheckoutInformation from '@pages/cart/CheckoutInformation';
 import React from 'react';
-import { useForm, SubmitHandler, Validate } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import RequiredField from '@components/Common/RequiredField/RequiredField';
+import { useAppDispatch } from '@hooks/use-app-dispatch';
+import { Cart, CustomerInformation } from '@model/Cart';
+import { cartActions } from '@store/modules/cart/reducer';
+import { addNewCheckout } from '@services/cart.service';
+import { useHistory } from 'react-router-dom';
+import { useAlert } from 'react-alert';
 
-interface IFormInputs {
-  fullName: string;
-  birth: Date;
-  phone: string;
-  address: string;
-  email: string;
-}
 const schema = yup
   .object({
     fullName: yup.string().required('Đây là trường bắt buộc'),
-    birth: yup.date().required('Đây là trường bắt buộc'),
     phone: yup
       .string()
       .trim()
@@ -33,18 +30,33 @@ const schema = yup
 interface Props {}
 
 const CheckoutPage: React.FC<Props> = (props): JSX.Element => {
-  const products = useSelector<RootState>((state) => state.cart.products) as CartProduct[];
+  const history = useHistory();
+  const cart = useSelector<RootState>((state) => state.cart) as Cart;
+  const dispatch = useAppDispatch();
+  const alert = useAlert();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormInputs>({
+  } = useForm<CustomerInformation>({
     resolver: yupResolver(schema),
     mode: 'onChange',
   });
 
-  const onSubmit: SubmitHandler<IFormInputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<CustomerInformation> = async (data) => {
+    await dispatch(cartActions.setCustomerInformation(data));
+    await addNewCheckout(cart);
+    await dispatch(cartActions.resetCart());
+    localStorage.removeItem('cart');
+    alert.show('Đặt hàng thành công', {
+      timeout: 2000,
+      type: 'success',
+      onClose: () => {
+        history.push('/');
+      },
+    });
+  };
 
   return (
     <div className=" bg-white py-10 px-20">
@@ -59,13 +71,6 @@ const CheckoutPage: React.FC<Props> = (props): JSX.Element => {
               </label>
               <input {...register('fullName')} />
               <p>{errors.fullName?.message}</p>
-            </div>
-            <div>
-              <label htmlFor="birth">
-                Ngày sinh <RequiredField></RequiredField>
-              </label>
-              <input type="date" {...register('birth')} />
-              <p>{errors.birth?.message}</p>
             </div>
             <div>
               <label htmlFor="phone">
@@ -93,7 +98,7 @@ const CheckoutPage: React.FC<Props> = (props): JSX.Element => {
             Đặt mua
           </button>
         </div>
-        <CheckoutInformation isCheckout={true} products={products} className="w-4/12"></CheckoutInformation>
+        <CheckoutInformation isCheckout={true} products={cart.products} className="w-4/12"></CheckoutInformation>
       </div>
     </div>
   );

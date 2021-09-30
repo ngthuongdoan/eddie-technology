@@ -1,10 +1,11 @@
 import Price from '@components/Common/Price/Price';
-import Product, { CartProduct } from '@model/Product';
+import Product from '@model/Product';
 import Card from '@components/UI/Card/Card';
 import React from 'react';
 import { useAppDispatch } from '@hooks/use-app-dispatch';
-import { cartActions } from '@store/modules/cart/reducer';
 import { Link } from 'react-router-dom';
+import { CartProduct } from '@model/Cart';
+import { cartActions } from '@store/modules/cart/reducer';
 
 interface Props {
   item: CartProduct;

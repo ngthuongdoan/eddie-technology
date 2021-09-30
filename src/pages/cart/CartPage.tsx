@@ -1,5 +1,5 @@
 import NoValue from '@components/Common/NoValue/NoValue';
-import { CartProduct } from '@model/Product';
+import { CartProduct } from '@model/Cart';
 import { RootState } from '@model/ReduxType';
 import React from 'react';
 import { useSelector } from 'react-redux';

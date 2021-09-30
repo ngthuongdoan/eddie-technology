@@ -1,10 +1,18 @@
-import Product, { CartProduct } from '@model/Product';
+import { Cart, CustomerInformation } from '@model/Cart';
+import Product from '@model/Product';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getProductPrice } from '@utils/index';
 
-type SliceState = { products: CartProduct[]; total: number };
-
-const initialCartState: SliceState = { products: [], total: 0 };
+const initialCartState: Cart = {
+  products: [],
+  customer: {
+    fullName: '',
+    phone: '',
+    address: '',
+    email: '',
+  },
+  total: 0,
+};
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -41,6 +49,12 @@ const cartSlice = createSlice({
       // Update total
       state.total -= getProductPrice(payload);
       localStorage.setItem('cart', JSON.stringify(state));
+    },
+    setCustomerInformation(state, { payload }: PayloadAction<CustomerInformation>) {
+      state.customer = { ...payload };
+    },
+    resetCart(state) {
+      return initialCartState;
     },
   },
   extraReducers: {},

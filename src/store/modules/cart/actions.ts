@@ -1,4 +1,4 @@
-import { CartProduct } from '@model/Product';
+import { CartProduct } from '@model/Cart';
 import { AppDispatch } from '@model/ReduxType';
 import { cartActions } from './reducer';
 

@@ -1,6 +1,6 @@
 import CartItem from '@components/Cart/CartItem/CartItem';
+import { CartProduct } from '@model/Cart';
 import ClassNameProps from '@model/ClassNameProps';
-import { CartProduct } from '@model/Product';
 import React from 'react';
 
 interface Props {
