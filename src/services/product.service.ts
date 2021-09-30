@@ -24,7 +24,7 @@ export const getAllProducts = async (): Promise<Product[]> => {
       brand: product.data().brand,
     });
   });
-  return products;
+  return Promise.resolve(products);
 };
 
 const generateQuery = (filter: Record<string, string>) => {
@@ -47,38 +47,40 @@ export const getAllProductsWithCategory = async (categoryId: string, filter: Fil
   const querySnapshot = await getDocs(q);
   const products: Product[] = [];
   querySnapshot.forEach((product) => {
+    const data: Product = product.data() as Product;
     products.push({
       id: product.id,
-      name: product.data().name,
-      images: product.data().images,
-      category: product.data().category,
-      listedPrice: product.data().listedPrice,
-      promotionPrice: product.data().promotionPrice,
-      promotionPercent: product.data().promotionPercent,
-      colors: product.data().colors,
-      description: product.data().description,
-      specifications: product.data().specifications,
-      brand: product.data().brand,
+      name: data.name,
+      images: data.images,
+      category: data.category,
+      listedPrice: data.listedPrice,
+      promotionPrice: data.promotionPrice,
+      promotionPercent: data.promotionPercent,
+      colors: data.colors,
+      description: data.description,
+      specifications: data.specifications,
+      brand: data.brand,
     });
   });
-  return products;
+  return Promise.resolve(products);
 };
 
 export const getProduct = async (id: string): Promise<Product> => {
   const docRef = doc(db, 'product', id);
   const product = await getDoc(docRef);
+  const data: Product = product.data() as Product;
 
-  return {
+  return Promise.resolve({
     id: product.id,
-    name: product.data()!.name,
-    brand: product.data()!.brand,
-    images: product.data()!.images,
-    category: product.data()!.category,
-    listedPrice: product.data()!.listedPrice,
-    promotionPrice: product.data()?.promotionPrice,
-    promotionPercent: product.data()?.promotionPercent,
-    colors: product.data()!.colors,
-    description: product.data()!.description,
-    specifications: product.data()!.specifications,
-  };
+    name: data.name,
+    brand: data.brand,
+    images: data.images,
+    category: data.category,
+    listedPrice: data.listedPrice,
+    promotionPrice: data?.promotionPrice,
+    promotionPercent: data?.promotionPercent,
+    colors: data.colors,
+    description: data.description,
+    specifications: data.specifications,
+  });
 };

@@ -1,5 +1,5 @@
+import { CartProduct } from '@model/Cart';
 import ClassNameProps from '@model/ClassNameProps';
-import { CartProduct } from '@model/Product';
 import { RootState } from '@model/ReduxType';
 import { toCurrency } from '@utils/index';
 import React from 'react';
