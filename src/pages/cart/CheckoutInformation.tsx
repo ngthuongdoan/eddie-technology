@@ -4,13 +4,20 @@ import { RootState } from '@model/ReduxType';
 import { toCurrency } from '@utils/index';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
   products: CartProduct[];
+  isCheckout?: boolean;
 }
+
+const defaultProps = {
+  isCheckout: false,
+};
 
 const CheckoutInformation: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
   const total = useSelector<RootState>((state) => state.cart.total);
+  const history = useHistory();
   return (
     <div className={`rounded-none shadow-lg py-3 px-10 ${props.className}`}>
       <div className="my-3">
@@ -26,11 +33,14 @@ const CheckoutInformation: React.FC<Props & ClassNameProps> = (props): JSX.Eleme
         <span className="text-red-600 mr-3">Tổng cộng :</span>
         {toCurrency(total as number)}
       </h1>
-      <button type="button" className="bg-red-700 text-white font-bold text-base w-full py-2">
-        Thanh toán
-      </button>
+      {!props.isCheckout && (
+        <button onClick={() => history.push('/checkout')} type="button" className="bg-red-700 text-white font-bold text-base w-full py-2">
+          Thanh toán
+        </button>
+      )}
     </div>
   );
 };
 
+CheckoutInformation.defaultProps = defaultProps;
 export default CheckoutInformation;

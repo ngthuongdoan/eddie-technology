@@ -1,0 +1,16 @@
+@layer components {
+  .form {
+    @apply flex flex-col gap-y-4;
+    label {
+      @apply font-bold text-base;
+    }
+    input,
+    select,
+    textarea {
+      @apply w-full border rounded-sm px-2 py-1 my-2;
+    }
+    p {
+      @apply text-xs italic font-thin text-red-500;
+    }
+  }
+}
