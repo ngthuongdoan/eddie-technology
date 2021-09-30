@@ -1,13 +1,36 @@
+import ClassNameProps from '@model/ClassNameProps';
+import { CartProduct } from '@model/Product';
 import { RootState } from '@model/ReduxType';
 import { toCurrency } from '@utils/index';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-interface Props {}
+interface Props {
+  products: CartProduct[];
+}
 
-const CheckoutInformation: React.FC<Props> = (props): JSX.Element => {
+const CheckoutInformation: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
   const total = useSelector<RootState>((state) => state.cart.total);
-  return <>{toCurrency(total as number)}</>;
+  return (
+    <div className={`rounded-none shadow-lg py-3 px-10 ${props.className}`}>
+      <div className="my-3">
+        {props.products.map((product) => (
+          <div key={product.id} className="text-sm font-normal flex w-full">
+            <p className="flex-grow">{product.name}</p>
+            <p className="justify-self-end">x{product.amount}</p>
+          </div>
+        ))}
+      </div>
+      <hr className="h-0.5 rounded-sm bg-gray-500" />
+      <h1 className="font-bold text-lg my-3">
+        <span className="text-red-600 mr-3">Tổng cộng :</span>
+        {toCurrency(total as number)}
+      </h1>
+      <button type="button" className="bg-red-700 text-white font-bold text-base w-full py-2">
+        Thanh toán
+      </button>
+    </div>
+  );
 };
 
 export default CheckoutInformation;
