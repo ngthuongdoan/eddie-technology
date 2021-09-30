@@ -12,7 +12,7 @@ const Price: React.FC<Props & ClassNameProps> = ({ product, className }): JSX.El
     <div className={className}>
       {product.promotionPercent && product.promotionPrice ? (
         <>
-          <p className="line-through mb-2 font-thin">{toCurrency(product.promotionPrice)}</p>
+          <p className="line-through mb-2 font-thin">{toCurrency(product.listedPrice)}</p>
           <p>
             <span>{toCurrency(product.promotionPrice)}</span>
             <span className="ml-2 text-red-600">-{product.promotionPercent}%</span>
