@@ -49,4 +49,4 @@ Backdrop.defaultProps = defaultProps;
 LoadingOverlay.defaultProps = defaultProps;
 Loading.defaultProps = defaultProps;
 
-export default Loading;
+export default React.memo(Loading);

@@ -11,22 +11,22 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   direction: 'horizontal' | 'vertical';
 }
 
+const justifyItem = (position: string) => {
+  switch (position) {
+    case 'start':
+      return 'justify-start';
+    case 'center':
+      return 'justify-center';
+    case 'end':
+      return 'justify-end';
+    default:
+      return '';
+  }
+};
 const TheNavigation: React.FC<Props> = (props): JSX.Element => {
-  const justifyItem = () => {
-    switch (props.position) {
-      case 'start':
-        return 'justify-start';
-      case 'center':
-        return 'justify-center';
-      case 'end':
-        return 'justify-end';
-    }
-    return '';
-  };
-
   return (
     <>
-      <ul className={`list-none w-full flex items-center gap-5 ${justifyItem()} ${props.className ? props.className : ''}`}>
+      <ul className={`list-none w-full flex items-center gap-5 ${justifyItem(props.position)} ${props.className ? props.className : ''}`}>
         {props.items.map((item, index) => (
           <Link
             to={(item as Feature).path}

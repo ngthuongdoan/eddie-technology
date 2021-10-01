@@ -16,4 +16,4 @@ const ProductCard: React.FC<ProductProps & ClassNameProps> = ({ product, classNa
   );
 };
 
-export default ProductCard;
+export default React.memo(ProductCard);

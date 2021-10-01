@@ -1,9 +1,7 @@
 import React from 'react';
 
-interface Props {}
-
-const RequiredField = (props: Props) => {
+const RequiredField = () => {
   return <span className="text-red-500">(*)</span>;
 };
 
-export default RequiredField;
+export default React.memo(RequiredField);

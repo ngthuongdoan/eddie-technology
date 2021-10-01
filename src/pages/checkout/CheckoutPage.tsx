@@ -13,6 +13,7 @@ import { cartActions } from '@store/modules/cart/reducer';
 import { addNewCheckout } from '@services/cart.service';
 import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
+import Button from '@components/UI/Button/Button';
 
 const schema = yup
   .object({
@@ -94,9 +95,9 @@ const CheckoutPage: React.FC<Props> = (props): JSX.Element => {
               <p>{errors.address?.message}</p>
             </div>
           </form>
-          <button type="submit" form="userInformation" className="bg-red-700 text-white font-bold text-base w-1/2 py-2">
+          <Button onClick={() => {}} type="submit" form="userInformation" className="bg-red-700 text-white font-bold text-base w-1/2 py-2">
             Đặt mua
-          </button>
+          </Button>
         </div>
         <CheckoutInformation isCheckout={true} products={cart.products} className="w-4/12"></CheckoutInformation>
       </div>

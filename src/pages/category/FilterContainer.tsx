@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import { useHistory } from 'react-router-dom';
 import { PHONE_FILTERS } from '@common/filters';
 import ClassNameProps from '@model/ClassNameProps';
+import Button from '@components/UI/Button/Button';
 import TheFilter from './TheFilter';
 
 interface Props {}
@@ -37,14 +38,9 @@ const FilterContainer: React.FC<Props & ClassNameProps> = (props): JSX.Element =
           </ul>
         )}
       </div>
-      <button
-        className="bg-primary px-3 py-2 mt-4 text-base text-white font-bold rounded-lg"
-        type="button"
-        onClick={() => filter()}
-        aria-hidden="true"
-      >
+      <Button className="bg-primary px-3 py-2 mt-4 text-base text-white font-bold rounded-lg" onClick={filter}>
         Filter
-      </button>
+      </Button>
     </div>
   );
 };

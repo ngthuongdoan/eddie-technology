@@ -1,3 +1,4 @@
+import Button from '@components/UI/Button/Button';
 import { CartProduct } from '@model/Cart';
 import ClassNameProps from '@model/ClassNameProps';
 import { RootState } from '@model/ReduxType';
@@ -18,6 +19,9 @@ const defaultProps = {
 const CheckoutInformation: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
   const total = useSelector<RootState>((state) => state.cart.total);
   const history = useHistory();
+  const checkout = () => {
+    history.push('/checkout');
+  };
   return (
     <div className={`rounded-none shadow-lg py-3 px-10 ${props.className}`}>
       <div className="my-3">
@@ -34,9 +38,9 @@ const CheckoutInformation: React.FC<Props & ClassNameProps> = (props): JSX.Eleme
         {toCurrency(total as number)}
       </h1>
       {!props.isCheckout && (
-        <button onClick={() => history.push('/checkout')} type="button" className="bg-red-700 text-white font-bold text-base w-full py-2">
+        <Button className="bg-red-700 text-white font-bold text-base w-full py-2" onClick={checkout}>
           Thanh toán
-        </button>
+        </Button>
       )}
     </div>
   );

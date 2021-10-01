@@ -6,6 +6,7 @@ import { useAppDispatch } from '@hooks/use-app-dispatch';
 import { Link } from 'react-router-dom';
 import { CartProduct } from '@model/Cart';
 import { cartActions } from '@store/modules/cart/reducer';
+import Button from '@components/UI/Button/Button';
 
 interface Props {
   item: CartProduct;
@@ -30,13 +31,13 @@ const CartItem: React.FC<Props> = ({ item }): JSX.Element => {
         </div>
       </Link>
       <div className="flex items-center font-bold text-lg mr-10 gap-3">
-        <button className="bg-primary text-white font-bold p-1 rounded-full" type="button" onClick={() => removeItem()} aria-hidden="true">
-          −
-        </button>
+        <Button className="item-button" onClick={removeItem}>
+          -
+        </Button>
         <p>{item.amount}</p>
-        <button className="bg-primary text-white font-bold p-1 rounded-full" type="button" onClick={() => addToCart()} aria-hidden="true">
+        <Button className="item-button" onClick={addToCart}>
           +
-        </button>
+        </Button>
       </div>
     </Card>
   );
