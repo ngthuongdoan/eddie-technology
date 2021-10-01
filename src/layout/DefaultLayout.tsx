@@ -12,6 +12,7 @@ const ProductDetailPage = React.lazy(() => import('@pages/product/_id/ProductDet
 const CategoryPage = React.lazy(() => import('@pages/category/CategoryPage'));
 const CartPage = React.lazy(() => import('@pages/cart/CartPage'));
 const CheckoutPage = React.lazy(() => import('@pages/checkout/CheckoutPage'));
+const BillPage = React.lazy(() => import('@pages/bill/BillPage'));
 
 // optional configuration
 const options: AlertProviderProps = {
@@ -40,6 +41,7 @@ const DefaultLayout: React.FC = (): JSX.Element => {
             <Switch>
               <Route exact path="/" component={MainPage} />
               <Route exact path="/cart" component={CartPage} />
+              <Route exact path="/bill" component={BillPage} />
               <Route exact path="/checkout" component={CheckoutPage} />
               <Route exact path="/product/:id" component={ProductDetailPage} />
               <Route exact path="/category/:categoryId" component={CategoryPage} />

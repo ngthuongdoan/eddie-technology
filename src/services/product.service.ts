@@ -27,6 +27,30 @@ export const getAllProducts = async (): Promise<Product[]> => {
   return Promise.resolve(products);
 };
 
+export const getProductsWithName = async (name: string): Promise<Product[]> => {
+  const q = query(productStore, where('name', '==', name));
+
+  const querySnapshot = await getDocs(q);
+  const products: Product[] = [];
+  querySnapshot.forEach((product) => {
+    const data: Product = product.data() as Product;
+    products.push({
+      id: product.id,
+      name: data.name,
+      images: data.images,
+      category: data.category,
+      listedPrice: data.listedPrice,
+      promotionPrice: data.promotionPrice,
+      promotionPercent: data.promotionPercent,
+      colors: data.colors,
+      description: data.description,
+      specifications: data.specifications,
+      brand: data.brand,
+    });
+  });
+  return Promise.resolve(products);
+};
+
 const generateQuery = (filter: Record<string, string>) => {
   const refinedFilter = removeNullAndUndefined(filter);
   const result: QueryConstraint[] = [];

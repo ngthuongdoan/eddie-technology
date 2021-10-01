@@ -46,17 +46,26 @@ const CheckoutPage: React.FC<Props> = (props): JSX.Element => {
   });
 
   const onSubmit: SubmitHandler<CustomerInformation> = async (data) => {
-    await dispatch(cartActions.setCustomerInformation(data));
-    await addNewCheckout(cart);
-    await dispatch(cartActions.resetCart());
-    localStorage.removeItem('cart');
-    alert.show('Đặt hàng thành công', {
-      timeout: 2000,
-      type: 'success',
-      onClose: () => {
-        history.push('/');
-      },
-    });
+    try {
+      await dispatch(cartActions.setCustomerInformation(data));
+      const code = (Math.random() + 1).toString(36).substring(7);
+      await addNewCheckout({ ...cart, code });
+
+      alert.show(`Đặt hàng thành công, mã hóa đơn của bạn là ${code}`, {
+        timeout: 60000,
+        type: 'success',
+        onClose: () => {
+          dispatch(cartActions.resetCart());
+          localStorage.removeItem('cart');
+          history.push('/');
+        },
+      });
+    } catch (e) {
+      alert.show('Có lỗi xảy ra vui lòng thử lại', {
+        timeout: 3000,
+        type: 'error',
+      });
+    }
   };
 
   return (
@@ -99,7 +108,7 @@ const CheckoutPage: React.FC<Props> = (props): JSX.Element => {
             Đặt mua
           </Button>
         </div>
-        <CheckoutInformation isCheckout={true} products={cart.products} className="w-4/12"></CheckoutInformation>
+        <CheckoutInformation isCheckout={true} cart={cart} className="w-4/12"></CheckoutInformation>
       </div>
     </div>
   );

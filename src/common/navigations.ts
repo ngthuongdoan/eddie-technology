@@ -4,17 +4,17 @@ const NAVIGATIONS: Array<Feature> = [
   {
     icon: 'tags',
     title: 'Khuyến mãi',
-    path: '',
+    path: '/promotion',
   },
   {
     icon: 'receipt',
     title: 'Đơn hàng',
-    path: '',
+    path: '/bill',
   },
   {
     icon: 'user',
     title: 'Đăng nhập',
-    path: '',
+    path: '/login',
   },
   {
     icon: 'shopping-cart',
