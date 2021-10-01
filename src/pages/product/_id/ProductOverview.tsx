@@ -5,6 +5,7 @@ import { ProductProps } from '@model/Product';
 import Price from '@components/Common/Price/Price';
 import { useAppDispatch } from '@hooks/use-app-dispatch';
 import { cartActions } from '@store/modules/cart/reducer';
+import Button from '@components/UI/Button/Button';
 
 const settings: Settings = {
   dots: true,
@@ -44,14 +45,9 @@ const ProductOverview: React.FC<ProductProps> = ({ product }): JSX.Element => {
             </span>
           </p>
           <Price className="italic font-bold text-primary text-2xl" product={product}></Price>
-          <button
-            className="font-bold text-white text-base px-3 py-2 rounded bg-red-700"
-            type="button"
-            onClick={() => addToCart()}
-            aria-hidden="true"
-          >
+          <Button className="font-bold text-white text-base px-3 py-2 rounded bg-red-700" onClick={addToCart}>
             Thêm vào giỏ hàng
-          </button>
+          </Button>
         </div>
       </div>
     </>

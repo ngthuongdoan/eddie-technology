@@ -1,0 +1,5 @@
+@layer components {
+  .item-button {
+    @apply bg-primary text-white font-bold p-1 rounded-full;
+  }
+}

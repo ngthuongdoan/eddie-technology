@@ -10,4 +10,4 @@ const TheBanner: React.FC = (props): JSX.Element => {
   );
 };
 
-export default TheBanner;
+export default React.memo(TheBanner);

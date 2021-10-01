@@ -33,4 +33,4 @@ const TheFooter: React.FC = (): JSX.Element => {
   );
 };
 
-export default TheFooter;
+export default React.memo(TheFooter);

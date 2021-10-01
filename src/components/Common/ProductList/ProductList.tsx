@@ -4,7 +4,6 @@ import Pagination from 'rc-pagination';
 import ClassNameProps from '@model/ClassNameProps';
 import Product from '@model/Product';
 import ProductCard from '@components/Common/ProductCard/ProductCard';
-import queryString from 'query-string';
 
 interface Props {
   products: Product[];
@@ -17,10 +16,11 @@ const ProductList: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
   const perPage = 10;
   const { products, currentPage, className } = props;
   useEffect(() => {
-    setFilterProducts([...products.slice((currentPage - 1) * perPage, (currentPage - 1) * perPage + perPage)]);
+    const newPage = [...products.slice((currentPage - 1) * perPage, (currentPage - 1) * perPage + perPage)];
+    setFilterProducts(newPage);
   }, [products, perPage, currentPage]);
 
-  const onPageChange = (current: number, pageSize: number) => {
+  const onPageChange = (current: number) => {
     props.onPageChange(current);
   };
 
@@ -34,12 +34,12 @@ const ProductList: React.FC<Props & ClassNameProps> = (props): JSX.Element => {
             </Link>
           ))}
       </div>
-      {products?.length !== perPage && (
+      {products && products.length !== perPage && (
         <Pagination
           className="w-full text-center mb-5"
           current={currentPage}
           pageSize={perPage}
-          total={products?.length}
+          total={products.length}
           onChange={onPageChange}
         ></Pagination>
       )}
